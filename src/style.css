@@ -43,3 +43,6 @@
 .physical-failure{margin:0;padding:16px 22px;background:#ff967d0c;border-bottom:1px solid var(--line);color:var(--coral);font-size:12px;line-height:1.8}
 
 #physical-forecast-play{width:132px;min-width:132px;flex:0 0 132px;white-space:nowrap}
+
+.trail-controls{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:16px 24px;border-bottom:1px solid var(--line);font:11px var(--mono);color:var(--muted)}.trail-controls label{color:var(--text)}.trail-controls input{flex:1;min-width:80px;max-width:360px;accent-color:var(--lime)}.trail-controls output{min-width:65px;color:var(--lime)}.trail-controls p{flex-basis:100%;margin:0;font:11px/1.6 var(--sans)}
+@media(max-width:720px){.trail-controls{padding:14px 16px;gap:8px}.trail-controls label{flex-basis:100%}}

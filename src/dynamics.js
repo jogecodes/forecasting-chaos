@@ -31,7 +31,7 @@ export function firstSeparation(distances, dt, threshold = 1) {
 }
 
 export function sensitivityPair(epsilon, reference = lorenzTrajectory([1, 1, 1])) {
-  if (!(epsilon >= 1e-8 && epsilon <= .01)) throw new RangeError('Perturbation outside the illustrated range');
+  if (!(epsilon >= 1e-8 && epsilon <= 1)) throw new RangeError('Perturbation outside the illustrated range');
   const other = lorenzTrajectory([1 + epsilon, 1, 1]);
   const n = reference.length / 3;
   const data = new Float64Array(n * 6), separation = new Float64Array(n);

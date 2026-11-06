@@ -39,6 +39,16 @@ test('butterfly slider preserves tiny initial differences and shifts example sep
   assert.equal(firstSeparation(Float64Array.of(.1, 1.1, .1), .01), .01);
 });
 
+test('sensitivity accepts differences through 1 and rejects out-of-range values', () => {
+  const result = sensitivityPair(.1);
+  assert.ok(Math.abs(result.separation[0] - .1) < 1e-14);
+  assert.ok(result.data.every(Number.isFinite));
+  const largest = sensitivityPair(1);
+  assert.equal(largest.separation[0], 1);
+  assert.ok(largest.data.every(Number.isFinite));
+  assert.throws(() => sensitivityPair(1.001), RangeError);
+});
+
 test('bifurcation columns reproduce stable fixed points, period two, and period three', () => {
   for (const [r, period] of [[2.9, 1], [3.2, 2], [3.83, 3]]) {
     const values = logisticTrajectory(r, .2, 96, 1000);

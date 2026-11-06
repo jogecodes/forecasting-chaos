@@ -40,7 +40,7 @@ export function scene(canvas, series, options = {}) {
   for (const s of series) {
     const n = s.data.length / s.width;
     const end = Math.min(n - 1, Math.max(0, Math.floor(options.index ?? n - 1)));
-    const start = options.trail ? Math.max(0, end - options.trail) : 0;
+    const start = Math.max(0, end - (options.trail ?? Infinity));
     if (options.ghost) {
       const ghost = [];
       for (let i = 0; i < n; i += Math.max(1, Math.ceil(n / 3500))) ghost.push(P(point(s, i)));

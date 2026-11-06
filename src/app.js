@@ -60,7 +60,7 @@ function visible(element) {
 }
 
 const hero = { data: null, index: 1500, dirty: true };
-const sensitivity = { data: null, index: 0, playing: false, dirty: true, sequence: 0 };
+const sensitivity = { data: null, index: 0, playing: false, dirty: true, sequence: 0, persistence: 15 };
 const forecast = { data: null, index: 0, playing: false, dirty: true, sequence: 0 };
 const gallery = { data: null, index: 0, playing: !reducedMotion, dirty: true, slug: 'pendulum', sequence: 0, view: 'physical' };
 const physicalForecast = createPhysicalForecast({ loadArray, onError: report });
@@ -97,7 +97,7 @@ function drawSensitivity() {
   scene($('sensitivity-canvas'), [
     { data: sensitivity.data, width: 6, color: C.lime, lineWidth: 3.2, marker: 'ring' },
     { data: sensitivity.data, width: 6, offset: 3, color: C.coral, lineWidth: 1.6, dash: [8, 6], marker: 'diamond' },
-  ], { ...sensitivityOrbit, bounds: sensitivity.bounds, index });
+  ], { ...sensitivityOrbit, bounds: sensitivity.bounds, index, trail: Math.floor(sensitivity.persistence / .01) });
   chart($('sensitivity-series'), [{ values: sensitivity.a, color: C.lime, lineWidth: 3 }, { values: sensitivity.b, color: C.coral, lineWidth: 1.5, dash: [6, 5] }], { dt: .01, xMax: 40, index });
   chart($('sensitivity-error'), [{ values: sensitivity.error, color: C.cyan }], { dt: .01, xMax: 40, index, log: true });
   $('sensitivity-time').value = (index * .01).toFixed(2);
@@ -285,6 +285,15 @@ function reset(state, button) { state.index = 0;state.playing = false;state.resu
 $('epsilon').addEventListener('input', () => {
   $('epsilon-value').value = (10 ** Number($('epsilon').value)).toExponential(1);
   clearTimeout(sliderTimer);sliderTimer = setTimeout(() => run(loadSensitivity), 70);
+});
+$('sensitivity-persistence').addEventListener('input', e => {
+  const position = Number(e.target.value);
+  // Zero and infinity are explicit endpoints, outside the finite logarithmic range.
+  sensitivity.persistence = position === 0 ? Infinity : position === 1000 ? 0 : 100 * (.01 / 100) ** ((position - 1) / 998);
+  const label = Number.isFinite(sensitivity.persistence) ? `${Number(sensitivity.persistence.toPrecision(3))} s` : '∞ s';
+  $('persistence-value').value = label;
+  e.target.setAttribute('aria-valuetext', position === 0 ? 'Infinite; keep the full trail' : `${label} of simulation time${position === 1000 ? '; current positions only' : ''}`);
+  sensitivity.dirty = true;
 });
 $('sensitivity-play').addEventListener('click', () => { if (sensitivity.index >= 4000) sensitivity.index = 0;sensitivity.playing = !sensitivity.playing;buttonState('sensitivity-play', sensitivity.playing); });
 $('sensitivity-reset').addEventListener('click', () => reset(sensitivity, 'sensitivity-play'));
