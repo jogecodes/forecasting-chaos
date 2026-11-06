@@ -101,7 +101,7 @@ npm run build
 ```
 
 Artifacts are currently outside this folder in
-`/app/more_studies/chaos-physical-experiments/run-2026-11-05`. They include training
+`/app/more_studies/chaos-private/chaos-forecasting-ai/results/physical-forecasting/run-2026-11-05`. They include training
 arrays, all original forecast outputs (including the unstable example), model
 checkpoints, initial-state lists, validation histories, summaries, code snapshots
 and an independent audit. The main data exporter preserves physical forecasts.

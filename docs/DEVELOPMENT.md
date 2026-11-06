@@ -177,7 +177,7 @@ Created scripts/train_physical.py and export_physical.py. New offline study:
 seed (7), 2×128 residual MLP, 3,200 updates, recursive four-step loss and
 180-step validation checkpoint selection. Runtime remains static playback.
 Artifacts and original full outputs/checkpoints live outside the website in
-/app/more_studies/chaos-physical-experiments/run-2026-11-05; prior research is
+/app/more_studies/chaos-private/chaos-forecasting-ai/results/physical-forecasting/run-2026-11-05; prior research is
 untouched. Fixed an initial waterwheel validation-duration error before that
 fit completed; preserved the earlier cache and completed pendulum fit.
 
