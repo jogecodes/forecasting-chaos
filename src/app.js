@@ -1,3 +1,4 @@
+import { initLocalization } from './i18n.js';
 import { boundsOf, column, decodeFloat32, extractState, prependState, trainingScaledError } from './math.js';
 import { C, chart, orbit, pendulum, scene, surface, waterwheel } from './draw.js';
 import { models } from './models.js';
@@ -5,6 +6,8 @@ import { pendulumPhase, standardizeProjection, waterwheelPhase } from './dynamic
 import { loadManifest } from './load.js';
 import { revealedDiagnosticMarkers } from './forecast-view.js';
 import { createPhysicalForecast } from './physical-forecast.js';
+
+initLocalization();
 
 const $ = id => document.getElementById(id);
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -65,6 +68,9 @@ const forecast = { data: null, index: 0, playing: false, dirty: true, sequence: 
 const gallery = { data: null, index: 0, playing: !reducedMotion, dirty: true, slug: 'pendulum', sequence: 0, view: 'physical' };
 const physicalForecast = createPhysicalForecast({ loadArray, onError: report });
 motionPreference.addEventListener('change', () => { hero.dirty = true; });
+document.addEventListener('languagechange', () => {
+  for (const state of [hero, sensitivity, forecast, gallery]) state.dirty = true;
+});
 const sensitivityOrbit = orbit($('sensitivity-canvas'), () => { sensitivity.dirty = true; });
 const forecastOrbit = orbit($('forecast-canvas'), () => { forecast.dirty = true; });
 const galleryPhaseOrbit = orbit($('gallery-phase-canvas'), () => { gallery.dirty = true; });
@@ -156,7 +162,7 @@ function configureCoordinatePlots() {
 function renderForecastScores() {
   const f = forecast.data;
   if (!f) return;
-  const system = $('forecast-system').selectedOptions[0].textContent;
+  const system = { lorenz: 'Lorenz', rossler: 'Rössler', 'van-der-pol': 'Forced Van der Pol' }[$('forecast-system').value];
   $('forecast-score-context').textContent = `${system} · ${trajectoryLabel(f.origin)} · ${f.config.samples.toLocaleString()} saved forecast steps. Compare the same starting example across all four models.`;
   $('forecast-score-caption').textContent = `Prediction errors for ${system}, ${trajectoryLabel(f.origin).toLowerCase()}. Lower is better.`;
   const models = Object.entries(f.origin.models);
@@ -249,7 +255,10 @@ async function selectGallery(slug) {
   $('gallery-insight').hidden = !copy.insight;
   $('gallery-equation').textContent = copy.equation;
   const config = manifest.gallery[slug];
-  const data = await loadArray(config.states);
+  const [data] = await Promise.all([
+    loadArray(config.states),
+    physicalForecast.load(slug, manifest.physicalForecasts[slug]),
+  ]);
   if (version !== gallery.sequence) return;
   gallery.data = data;gallery.config = config;
   gallery.phaseDimensions = slug === 'pendulum' ? 2 : 3;
@@ -262,7 +271,6 @@ async function selectGallery(slug) {
   $('gallery-caption').textContent = gallery.view === 'physical' ? copy.caption : 'Same simulated state · phase coordinates scaled by their own sample std';
 
   gallery.dirty = true;
-  await physicalForecast.load(slug, manifest.physicalForecasts[slug]);
 }
 function galleryLimit() { return (gallery.config?.states.shape[0] || 2) - 1; }
 function drawGallery() {
@@ -362,7 +370,7 @@ function animate(now) {
 }
 
 async function start() {
-  const controls = [...document.querySelectorAll('button, input, select')];
+  const controls = [...document.querySelectorAll('button:not([data-language]), input, select')];
   controls.forEach(control => { control.disabled = true; });
   manifest = await loadManifest(new URL('../data/manifest.json', import.meta.url));
   $('provenance').textContent = `Source snapshot: ${manifest.researchCommit}. Saved run: ${manifest.run}. Display arrays use Float32; episode events are copied unchanged. Comparison errors are computed from the original stored forecasts. Section 04 adds separate physical forecasting experiments, with methods below each comparison. The downloadable data/manifest.json records source and export SHA-256 hashes, numerical settings, scores, and origin selection.`;

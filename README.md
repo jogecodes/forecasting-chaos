@@ -20,6 +20,16 @@ npm run preview
 Open `http://localhost:8080`. Use HTTP; opening `index.html` as a file will not
 load modules and playback assets correctly. Stop the server with Ctrl+C.
 
+## Languages
+
+The header offers ES / EN / FR. Language changes update prose, controls,
+accessibility labels, dynamic model methods, diagnostics and canvas captions
+without resetting an experiment. The saved choice takes priority over browser
+language preferences; unsupported browser languages fall back to English.
+Scientific numbers, equations and simulation data are unchanged. Translations
+are bundled locally in `src/locales/`; no external translation service is used.
+Transformer is the default forecaster when opening either physical system.
+
 ## Experiences
 
 - Lorenz sensitivity: a continuous logarithmic butterfly-effect slider,

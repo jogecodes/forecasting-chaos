@@ -1,3 +1,4 @@
+import { translate } from './i18n.js';
 import { boundsOf, project } from './math.js';
 
 export const C = { lime: '#d3ef93', coral: '#ff967d', cyan: '#8ecad2', white: '#e9ede5', muted: '#8c999f', grid: '#273039', violet: '#b6a5e0' };
@@ -186,7 +187,7 @@ export function waterwheel(canvas, data, index, buckets, options = {}) {
   }
   ctx.fillStyle = options.color || C.lime;ctx.beginPath();ctx.arc(cx, cy, 5, 0, Math.PI * 2);ctx.fill();
   ctx.font = '11px monospace';ctx.textAlign = 'center';ctx.fillStyle = C.muted;
-  ctx.fillText(`ω = ${data[row + 1].toFixed(2)} · relative bucket fill`, cx, height - 18);ctx.textAlign = 'start';
+  ctx.fillText(`ω = ${data[row + 1].toFixed(2)} · ${translate('relative bucket fill')}`, cx, height - 18);ctx.textAlign = 'start';
   path(ctx, [[cx, cy - radius - 35], [cx, cy - radius - 12]], C.cyan, 2, .7);
 }
 

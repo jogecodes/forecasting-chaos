@@ -23,6 +23,7 @@ export function createPhysicalForecast({ loadArray, onError }) {
   for (const id of ['physical-forecast-run', 'physical-forecast-model']) {
     $(id).addEventListener('change', () => load(state.slug, state.config).catch(onError));
   }
+  document.addEventListener('languagechange', () => { state.dirty = true; });
   const observer = new ResizeObserver(() => { state.dirty = true; });
   ['physical-truth','physical-prediction','physical-motion-series','physical-motion-error'].forEach(id => observer.observe($(id)));
 
@@ -32,6 +33,7 @@ export function createPhysicalForecast({ loadArray, onError }) {
     state.slug = slug;state.config = config;state.data = null;reset();
     $('physical-forecast-play').disabled = true;
     if (!config) throw new Error(`Saved physical forecast missing for ${slug}`);
+    if (changed) $('physical-forecast-model').value = 'transformer';
     const family = $('physical-forecast-model').value;
     const model = config.models[family];
     if (!model) throw new Error(`Saved physical model missing: ${slug}/${family}`);

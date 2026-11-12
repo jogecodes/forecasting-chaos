@@ -46,3 +46,9 @@
 
 .trail-controls{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:16px 24px;border-bottom:1px solid var(--line);font:11px var(--mono);color:var(--muted)}.trail-controls label{color:var(--text)}.trail-controls input{flex:1;min-width:80px;max-width:360px;accent-color:var(--lime)}.trail-controls output{min-width:65px;color:var(--lime)}.trail-controls p{flex-basis:100%;margin:0;font:11px/1.6 var(--sans)}
 @media(max-width:720px){.trail-controls{padding:14px 16px;gap:8px}.trail-controls label{flex-basis:100%}}
+
+.language-switch{display:flex;flex-shrink:0;align-items:center;gap:2px;border:1px solid var(--line);padding:3px;border-radius:6px}.language-switch button{border:0;background:transparent;color:var(--muted);font:11px var(--mono);padding:8px 9px;min-height:34px;min-width:34px;border-radius:3px}.language-switch button:hover{color:var(--text)}.language-switch button[aria-pressed=true]{background:var(--lime);color:var(--bg)}
+@media(max-width:1050px){.topbar{gap:20px}.topbar nav{margin:auto}.language-switch button{padding:7px}}
+@media(max-width:720px){.topbar{height:108px;align-content:center;flex-wrap:wrap;justify-content:space-between;gap:9px 12px}.topbar nav{order:3;flex-basis:100%;margin:0;justify-content:space-between;gap:8px}.topbar nav a:last-child{display:block}.language-switch{margin-left:auto}.hero-content{padding-top:160px}.hero h1.hero-title-prediction{font-size:clamp(43px,12.4vw,72px);overflow-wrap:normal}}
+html:lang(es) #physical-forecast-play,html:lang(fr) #physical-forecast-play{width:190px;min-width:190px;flex-basis:190px}
+@media(max-width:720px){html:lang(es) .physical-forecast-charts .chart-heading,html:lang(fr) .physical-forecast-charts .chart-heading{overflow-wrap:anywhere}}
