@@ -46,11 +46,11 @@ export const messages = {
   },
   "Prediction has": {
     "es": "La predicción",
-    "fr": "La prévision a"
+    "fr": "La prévision"
   },
   "hard limits.": {
     "es": "tiene límites.",
-    "fr": "ses limites."
+    "fr": "a ses limites."
   },
   "A study using simulations and machine learning to explore why some systems are so hard to predict.": {
     "es": "Un estudio con simulaciones y aprendizaje automático para explorar por qué algunos sistemas son tan difíciles de predecir.",
@@ -102,7 +102,7 @@ export const messages = {
   },
   "The real issue? No starting state is ever known exactly. Measurements have limited precision and calculations introduce small errors, which chaotic dynamics amplify until the forecast no longer matches reality. Short-term predictions of a chaotic system can still work well, but in the long run, they are doomed to stray.": {
     "es": "¿El verdadero problema? Que nunca conocemos un estado inicial con exactitud. Las medidas, quieras o no, tienen una precisión limitada, y los cálculos introducen pequeños errores, que la dinámica caótica amplifica hasta que la predicción deja de coincidir con la realidad. Las predicciones a corto plazo aún pueden funcionar bien, pero a largo plazo están condenadas a desviarse.",
-    "fr": "Le vrai problème ? On ne connaît jamais exactement l’état initial. Les mesures ont une précision limitée et les calculs introduisent de petites erreurs que la dynamique chaotique amplifie, jusqu’à ce que la prévision ne corresponde plus à la réalité. Les prévisions à court terme peuvent encore être bonnes, mais à long terme, elles finissent par diverger."
+    "fr": "Le vrai problème ? C’est qu’on ne connaît jamais exactement l’état initial. Les mesures, qu’on le veuille ou non, ont une précision limitée et les calculs introduisent de petites erreurs que la dynamique chaotique amplifie, jusqu’à ce que la prévision ne corresponde plus à la réalité. Les prévisions à court terme peuvent encore être bonnes, mais à long terme, elles finissent par diverger."
   },
   "02 / Lorenz and the butterfly effect": {
     "es": "02 / Lorenz y el efecto mariposa",
@@ -134,7 +134,7 @@ export const messages = {
   },
   "Three numbers (x, y, z) pin down the state of the system as a point in the “phase space”, and the equations move that point step by step along a trajectory. The rules are fixed, so the same starting point always gives the same path. But a tiny change in the starting point can leave you somewhere completely different after the same amount of time. Lorenz found this out by accident: he restarted a simulation from rounded numbers, and the new run soon looked nothing like the original.": {
     "es": "Tres números (x, y, z) describen el estado del sistema como un punto en el «espacio de fases», y las ecuaciones desplazan ese punto paso a paso a lo largo de una trayectoria. Las reglas son fijas, así que el mismo punto inicial siempre da el mismo recorrido, pero un cambio diminuto en el punto de partida puede llevarte a un lugar completamente distinto tras el mismo tiempo. La leyenda cuenta que Lorenz lo descubrió por accidente: reinició una simulación con números redondeados y la nueva trayectoria pronto dejó de parecerse a la original.",
-    "fr": "Trois nombres (x, y, z) décrivent l’état du système comme un point dans l’« espace des phases », et les équations déplacent ce point pas à pas le long d’une trajectoire. Les règles sont fixes : un même point de départ donne toujours le même parcours. Mais une infime différence initiale peut vous conduire ailleurs après la même durée. Lorenz l’a découvert par accident : il a relancé une simulation avec des valeurs arrondies, et la nouvelle trajectoire s’est vite éloignée de l’originale."
+    "fr": "Trois nombres (x, y, z) décrivent l’état du système comme un point dans l’« espace des phases », et les équations déplacent ce point pas à pas le long d’une trajectoire. Les règles sont fixes : un même point de départ donne toujours le même parcours. Mais une infime différence initiale peut vous conduire ailleurs après la même durée. La petite histoire raconte que Lorenz l’a découvert par hasard : il a relancé une simulation avec des valeurs arrondies, et la nouvelle trajectoire s’est vite éloignée de l’originale."
   },
   "Draw every point a trajectory visits and a shape emerges: the Lorenz attractor, the butterfly-shaped curve we introduced at the top of the page. The path never repeats itself, yet it never leaves this shape. It circles one wing of the butterfly a few times, then jumps to the other, and keeps switching in an order that never settles into a pattern. In Lorenz's air convection model, each wing is a direction of circulation of the air, clockwise or anticlockwise, so every jump is the flow reversing.": {
     "es": "Dibuja cada punto que visita una trayectoria y aparecerá una extraña forma: el atractor de Lorenz, la curva con forma de mariposa del inicio de la página. La trayectoria nunca se repite, pero tampoco abandona esa forma. Da unas vueltas alrededor de un ala, salta a la otra y sigue alternando sin establecer un patrón. En el modelo de convección de Lorenz, cada ala representa un sentido de circulación del aire, horario o antihorario, con que cabe interpretar cada salto como una inversión del flujo.",
@@ -142,7 +142,7 @@ export const messages = {
   },
   "Use the slider below to set a tiny initial difference between two starting states. At first, their trajectories look almost identical. They drift apart a little, then all of a sudden seem to follow completely different paths. This is chaos in action: a tiny difference at the start grows into a striking difference over time. Make sure to give it about 15 seconds of simulation time. They get along in the beginning, but it doesn’t last long. Keep watching.": {
     "es": "Usa el deslizador para introducir una pequeña diferencia entre dos estados iniciales. Al principio, sus trayectorias parecen casi idénticas. Se separan un poco y, de pronto, parecen seguir caminos totalmente distintos. Esto es el caos en acción: una diferencia diminuta al inicio se convierte en una gran diferencia con el tiempo. Deja pasar unos 15 segundos de simulación. Al principio van juntas, pero no dura mucho. Tú sigue mirando.",
-    "fr": "Utilisez le curseur pour introduire une petite différence entre deux états initiaux. Au début, les trajectoires semblent presque identiques. Elles s’écartent un peu, puis paraissent soudain suivre des chemins complètement différents. C’est le chaos en action : une infime différence initiale devient une grande différence avec le temps. Laissez passer environ 15 secondes de simulation. Au début, elles restent proches, mais cela ne dure pas. Continuez à regarder."
+    "fr": "Utilisez le curseur pour introduire une petite différence entre deux états initiaux. Au début, les trajectoires semblent presque identiques. Elles s’écartent un peu, puis paraissent soudain suivre des chemins complètement différents. C’est le chaos en action : une infime différence initiale devient une grande différence avec le temps. Laissez passer environ 15 secondes de simulation. Au début, elles se suivent. Mais ça ne dure pas. Regardez bien la suite."
   },
   "NUMERICAL EXPERIMENT": {
     "es": "EXPERIMENTO NUMÉRICO",
@@ -874,7 +874,7 @@ export const messages = {
   },
   "Try a different beginning": {
     "es": "Prueba otro punto de partida",
-    "fr": "Essayer un autre départ"
+    "fr": "Essayer un autre point de départ"
   },
   "A project about chaotic dynamics and forecasting.": {
     "es": "Un proyecto sobre dinámica caótica y predicción.",

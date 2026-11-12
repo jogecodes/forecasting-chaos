@@ -3,8 +3,8 @@ import { dynamicMessages } from './locales/dynamic.js';
 
 export const languages = ['es', 'en', 'fr'];
 export const catalog = { ...messages, ...dynamicMessages };
-const storageKey = 'chaos-language';
-let language = 'en';
+export const defaultLanguage = 'en';
+let language = defaultLanguage;
 const escape = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const modelPattern = '(?:Polynomial dynamics|Transformer|GRU|Residual MLP|MLP|POLYNOMIAL DYNAMICS|TRANSFORMER|RESIDUAL MLP)';
 // Match complete messages, never fragments. More specific templates take priority.
@@ -30,15 +30,6 @@ export function translate(source, target = language, depth = 0) {
     return template.values[target].replace(/\{(\w+)\}/g, (_, key) => values[key]);
   }
   return source;
-}
-
-export function preferredLanguage(saved, preferences = []) {
-  if (languages.includes(saved)) return saved;
-  for (const preference of preferences) {
-    const short = String(preference).toLowerCase().split('-')[0];
-    if (languages.includes(short)) return short;
-  }
-  return 'en';
 }
 
 export function currentLanguage() { return language; }
@@ -82,7 +73,7 @@ export function initLocalization() {
       node.nodeType === Node.TEXT_NODE ? localizeText(node) : localizeAttributes(node);
     }
   }
-  function setLanguage(next, persist = true) {
+  function setLanguage(next) {
     if (!languages.includes(next)) return;
     language = next;
     document.documentElement.lang = next;
@@ -90,14 +81,10 @@ export function initLocalization() {
       button.setAttribute('aria-pressed', String(button.dataset.language === next));
     });
     localizeTree(document.documentElement);
-    if (persist) {
-      try { localStorage.setItem(storageKey, next); } catch { /* Private storage can be unavailable. */ }
-    }
     document.dispatchEvent(new CustomEvent('languagechange', { detail: { language: next } }));
   }
-  let saved;
-  try { saved = localStorage.getItem(storageKey); } catch { /* Fall back to browser preferences. */ }
-  setLanguage(preferredLanguage(saved, navigator.languages || [navigator.language]), false);
+  // Every visit starts in English, regardless of browser or past selections.
+  setLanguage(defaultLanguage);
   document.querySelectorAll('[data-language]').forEach(button => {
     button.addEventListener('click', () => setLanguage(button.dataset.language));
   });

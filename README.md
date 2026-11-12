@@ -24,8 +24,9 @@ load modules and playback assets correctly. Stop the server with Ctrl+C.
 
 The header offers ES / EN / FR. Language changes update prose, controls,
 accessibility labels, dynamic model methods, diagnostics and canvas captions
-without resetting an experiment. The saved choice takes priority over browser
-language preferences; unsupported browser languages fall back to English.
+without resetting an experiment. Every visit and reload starts in English,
+regardless of browser language or past selections. ES / EN / FR remains
+available for switching languages during the visit.
 Scientific numbers, equations and simulation data are unchanged. Translations
 are bundled locally in `src/locales/`; no external translation service is used.
 Transformer is the default forecaster when opening either physical system.

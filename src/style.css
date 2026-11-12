@@ -58,7 +58,7 @@ html:lang(es) #physical-forecast-play,html:lang(fr) #physical-forecast-play{widt
 .hero-content{grid-column:1;grid-row:1;width:100%;padding:0;min-width:0}
 .hero-caption{position:relative;grid-column:2;grid-row:1;align-self:end;right:auto;bottom:auto;z-index:2}
 .hero-bottom{position:relative;grid-column:1/-1;grid-row:2;left:auto;right:auto;bottom:auto;z-index:2}
-html:lang(es) .hero-title-prediction em{display:inline-block;white-space:nowrap}
+html:lang(es) .hero-title-prediction em,html:lang(fr) .hero-title-prediction em{display:inline-block;white-space:nowrap}
 .spoiler-word{font-style:normal}html:lang(es) .spoiler-word{font-style:italic}
 .trajectory-legend p{text-wrap:balance;hyphens:none;word-break:normal;overflow-wrap:normal}
 @media(max-width:720px){.hero{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;row-gap:48px;padding-top:160px;min-height:760px}.hero-content{padding:0}.hero-caption{grid-column:1;grid-row:2;justify-self:end;max-width:200px;right:auto;bottom:auto}.hero-bottom{grid-row:3}}

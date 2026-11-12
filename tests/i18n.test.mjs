@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { catalog, preferredLanguage, translate } from '../src/i18n.js';
+import { catalog, defaultLanguage, currentLanguage, translate } from '../src/i18n.js';
 
 const placeholders = value => [...value.matchAll(/\{(\w+)\}/g)].map(match => match[1]).sort();
 
@@ -35,11 +35,13 @@ test('all physical model methods translate fully, including embedded saved metad
   }
 });
 
-test('language preference honors a saved choice, regional browser locales, and safe fallback', () => {
-  assert.equal(preferredLanguage('fr',['es-ES','en-GB']),'fr');
-  assert.equal(preferredLanguage(null,['de-DE','es-ES']),'es');
-  assert.equal(preferredLanguage('invalid',['fr-CA']),'fr');
-  assert.equal(preferredLanguage(null,['de-DE']),'en');
+test('English is always the initial language and manual translations remain available', () => {
+  assert.equal(defaultLanguage,'en');
+  assert.equal(currentLanguage(),'en');
+  assert.equal(translate('Prediction has'),'Prediction has');
+  assert.equal(translate('Prediction has','es'),'La predicción');
+  assert.equal(translate('Prediction has','fr'),'La prévision');
+  assert.equal(translate('hard limits.','fr'),'a ses limites.');
   assert.equal(translate('θ₁ / ω₁ = 0.000067','es'),'θ₁ / ω₁ = 0.000067');
 });
 
