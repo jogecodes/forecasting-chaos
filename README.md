@@ -1,7 +1,8 @@
 # Chaos — Prediction has hard limits
 
-A local work in progress for Jorge Casajús-Setién's interactive chaos portfolio.
-This folder is **not a Git repository**. There is no remote or deployment.
+Jorge Casajús-Setién's interactive chaos portfolio.
+Repository: https://github.com/jogecodes/forecasting-chaos.
+Cloudflare Workers Builds publishes production changes pushed to `main`.
 
 The site is static HTML, CSS, and native JavaScript modules. Browser rendering
 needs no Python service, GPU, database, third-party CDN, or JavaScript dependency.
@@ -30,10 +31,10 @@ load modules and playback assets correctly. Stop the server with Ctrl+C.
   early/full normalized errors and coordinate RMSE for the selected trajectory.
 - Physical systems: double pendulum and 24-bucket waterwheel only. Each starts
   with the mechanism and its explanation, then compares synchronized physical
-  animations of simulation and a genuine learned forecast. Physical / Phase
+  animations of simulation and a genuine learned forecast selected from polynomial dynamics, Transformer, GRU and residual MLP. Physical / Phase
   space / Both remain available for exploration. Each system has three saved
-  test runs, motion-error plots and RMSE summaries. One unstable pendulum rollout
-  is explicitly stopped and marked incomplete; it is not silently omitted.
+  test runs per model, motion-error plots and RMSE summaries. Invalid or unstable
+  rollouts stop explicitly and remain visible as incomplete examples.
 - Research case studies: data scaling, polynomial dynamics, PINN reconstruction
   versus extrapolation, and the development of breakdown/recovery diagnostics.
 
@@ -67,28 +68,34 @@ tests. The archived Lorenz pairs retain their original pre-quantization distance
 exports. The continuous butterfly slider now uses Float64 browser integration;
 its numerical method and limitations are documented separately.
 
-## Publishing later
+## Publishing
 
-The user is preparing Cloudflare hosting. When the local site is ready and a
-repository is explicitly requested, it can be connected to Cloudflare Pages:
+Production is connected to this repository through Cloudflare Workers Builds.
+A push to `main` triggers the build and deployment for `forecasting-chaos`.
+`wrangler.jsonc` configures the Worker to serve static assets from `dist/`.
 
-- Build command: `npm run build`
-- Output directory: `dist`
-- Root directory: this folder's root
-- Environment: Node.js 22 or later
-- No runtime secrets, server functions, or private-repository access required
+Before publishing:
 
-Alternatively upload the **contents of `dist/`**, not the research directory, as
-a static deployment. Relative asset URLs also support hosting in a subdirectory.
-`_headers` configures security headers and revalidation of playback data on Pages.
+```bash
+npm test
+npm run build
+git add <reviewed-files>
+git commit -m "Describe the change"
+git push origin main
+```
 
-This working folder intentionally has no Git setup or hosting identity. Build
-and preview commands do not publish anything.
+Check **Workers Builds: forecasting-chaos** on the pushed commit for the build
+result. Build and preview commands alone do not publish anything. `dist/` is
+ignored by Git and is generated during the build. No runtime secrets or access
+to the private research repository are needed.
 
 ## Physical forecasting experiments
 
-The two new residual MLPs were fitted locally with 32 training runs, four
-validation runs and three test runs per system. The browser only replays exports;
+Each physical system now offers the same four model families as the forecast
+laboratory: polynomial dynamics, Transformer, GRU and residual MLP. Select a
+**Forecaster** above the comparison to change predictions, errors and methods.
+All families use the same 32 training runs, four validation runs and three test
+runs per system. The original MLP fits and outputs are preserved. The browser only replays exports;
 it never trains or needs a GPU. Original section-03 research is unchanged.
 
 Offline reproduction (NumPy, SciPy, PyTorch):
@@ -105,3 +112,24 @@ Artifacts are currently outside this folder in
 arrays, all original forecast outputs (including the unstable example), model
 checkpoints, initial-state lists, validation histories, summaries, code snapshots
 and an independent audit. The main data exporter preserves physical forecasts.
+
+
+To reproduce the additional physical models from the original fixed data split
+(the original artifacts are read only):
+
+```bash
+python scripts/train_physical_comparison.py --source /path/to/run-2026-11-05 --artifacts /path/to/new-comparison --system pendulum
+python scripts/train_physical_comparison.py --source /path/to/run-2026-11-05 --artifacts /path/to/new-comparison --system waterwheel
+python scripts/export_physical_comparison.py --source /path/to/run-2026-11-05 --artifacts /path/to/new-comparison
+npm test
+npm run build
+```
+
+The saved comparison artifacts are in
+`/app/more_studies/chaos-private/chaos-forecasting-ai/results/physical-forecasting/comparison-2026-11-12`.
+This directory contains the new checkpoints, reconstructed observed contexts,
+validation histories and full outputs, including incomplete rollouts. Training
+resumes completed model families when their summaries already exist; use a new
+artifact directory to change settings. The original `train_physical.py` /
+`export_physical.py` commands reproduce the earlier MLP-only experiment; use the
+comparison exporter to publish all four physical model families locally.

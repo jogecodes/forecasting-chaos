@@ -81,3 +81,14 @@ Review autonomous-system plots, preserve visual judgments separately, freeze a
 candidate diagnostic, then evaluate genuinely new ICs. Test noise, partial
 observations, and parameter changes only through explicitly defined experiments.
 Do not tune repeatedly inspected tests to make the display look better.
+
+
+## Physical model comparison (2026-11-12)
+
+Section 04 now offers polynomial dynamics, Transformer, GRU and residual MLP
+for both the double pendulum and 24-bucket waterwheel. Original MLP predictions
+are retained. New models use the same 32 training trajectories, four validation
+trajectories and three test trajectories. Choose a model and keep the same run
+to compare animations and motion RMSE. Full/early scores are unavailable when
+a model leaves the common numerical display guard before that horizon.
+Methods and reproduction commands are in METHODS.md and the root README.

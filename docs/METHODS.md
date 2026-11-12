@@ -149,14 +149,40 @@ Truth uses DOP853 with rtol=1e-10, atol=1e-12, sampling 0.01 s (pendulum) or
 4 s (pendulum) or 12 s (wheel) of simulated warmup. Warmup is observed history,
 not part of the scored forecast. Planned horizons are 25 s and 45 s respectively.
 
-A separate residual MLP per system predicts full-state increments: two 128-unit
-SiLU hidden layers, sine/cosine angle inputs plus velocities and every bucket
-mass. State-increment and feature scaling use training data only. AdamW fitting
-uses seed 7, batch 256, 3,200 updates and a four-step recursive normalized state
-loss. Eight checkpoints (every 400 updates) are compared on 180-step validation
-rollouts; no test score selects weights or architecture. Predictions recursively
-feed back without truth correction; no dynamics-equation rollout is disguised
-as a learned forecast. One fitting seed gives no uncertainty calibration.
+All four model families are fitted separately for each physical system on the
+same fixed 32/4/3 trajectory split. The selector changes the saved predictions,
+metrics and method description, while retaining the selected test run. All
+forecasts begin at the original test origin after the same warmup.
+
+- Residual MLP: the original fit and outputs are preserved. Two 128-unit SiLU
+  hidden layers predict full-state increments from sine/cosine angles, velocities
+  and every bucket mass. AdamW, seed 7, batch 256, 3,200 updates, four-step
+  recursive normalized state loss; checkpoints every 400 updates are selected
+  on separate 180-step validation forecasts.
+- Transformer: two encoder layers, width 48, four attention heads, feed-forward
+  width 96, no dropout and sinusoidal positions; reads the previous 24 states.
+- GRU: two recurrent layers of 64 units; reads the same 24 observed states.
+- Polynomial dynamics: quadratic polynomials of standardized sine/cosine angle
+  features, velocities and bucket masses, fitted by least squares with rcond
+  1e-8 to fourth-order central finite-difference derivative targets. Learned
+  derivatives are integrated with RK4, four substeps per exported sample. The
+  degree is fixed at two before test evaluation; physical equation coefficients
+  are never supplied. Unlike section 03's polynomial equations, these physical
+  equations contain trigonometric, rational and exponential terms, so the
+  quadratic feature library is an approximation.
+
+The new Transformer and GRU fits use the same seed, optimizer, batch size,
+3,200 updates, four-step recursive loss and 180-step validation checkpoint
+selection as the physical MLP. Scaling is estimated from training data only.
+Full observed contexts are reconstructed from the original initial states and
+solver settings, ending exactly at the unchanged validation/test origins; the
+script verifies their future truth matches the original arrays. The MLP and
+polynomial models consume only the last context state. No model sees future
+truth after that origin, and histories contain only predictions during rollout.
+These are the same model families as section 03, adapted to periodic angles;
+physical experiments use one neural seed rather than section 03's three.
+One seed gives no calibrated uncertainty. Test trajectories are inspected
+exploratory examples, not a fresh blind benchmark.
 
 Shown motion errors are Euclidean separation of the lower bobs (unit rod length)
 or absolute wheel angular-velocity difference (rad/s). RMSE summaries use the
@@ -165,11 +191,14 @@ The physical panels share the same timeline; wheel bucket fills share a common
 scale across simulation and forecast. Full-state normalized errors are exported
 with angle differences wrapped to [-π,π], but are distinct from motion scores.
 
-The second pendulum forecast becomes unstable. Its full original output remains
+The original second MLP pendulum forecast becomes unstable. Other model
+rollouts are checked independently using the same training-derived guard. Its full original output remains
 in artifacts, but display stops before an angular velocity exceeds 10 times
 the largest training speed. Nonfinite states or negative wheel masses would
 also stop display. This numerical display guard is not a forecast-accuracy or
-chaos threshold. The UI marks the run incomplete and omits a full-horizon score.
+chaos threshold. The UI marks an invalid run incomplete and omits its full-horizon score. If a
+rollout stops before 1.8 seconds, its early score is also unavailable rather
+than being computed over a shortened interval.
 The old episode policy is not transferred to these physical experiments.
 
 Independent checks compare both RHS implementations with the original research

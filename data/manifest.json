@@ -9940,12 +9940,9 @@
       "warmup": 4,
       "dimensions": 4,
       "bucketCount": null,
-      "model": "Residual MLP",
       "trainingRuns": 32,
       "validationRuns": 4,
       "testRuns": 3,
-      "seed": 7,
-      "updates": 3200,
       "solver": "DOP853 rtol=1e-10 atol=1e-12",
       "trainingScales": [
         4.512124538421631,
@@ -9953,172 +9950,6 @@
         2.692279100418091,
         3.787540912628174
       ],
-      "method": "Predict state increments from sin/cos angles, velocities and (for the wheel) every bucket mass; 2 hidden layers of 128 SiLU units; four-step recursive loss; checkpoint selected on separate 180-step validation forecasts.",
-      "runs": [
-        {
-          "truth": {
-            "file": "physical/pendulum/run-1/truth.f32",
-            "shape": [
-              2501,
-              4
-            ],
-            "bytes": 40016,
-            "sha256": "6efe6d6ae3ecf1cef696b5a34d804fc4b662e919fde3d929de4461bee7f1524b"
-          },
-          "prediction": {
-            "file": "physical/pendulum/run-1/prediction.f32",
-            "shape": [
-              2501,
-              4
-            ],
-            "bytes": 40016,
-            "sha256": "798c26787f3ea504c3376b29d00dc3c8477c65999259377ac6400be253040c7b"
-          },
-          "mismatch": {
-            "file": "physical/pendulum/run-1/mismatch.f32",
-            "shape": [
-              2501
-            ],
-            "bytes": 10004,
-            "sha256": "dacf860c90a2cc0ce5a19c6478292ca8e50da17df7bbf982cf675e70b9566cc8"
-          },
-          "normalizedError": {
-            "file": "physical/pendulum/run-1/normalized-error.f32",
-            "shape": [
-              2501
-            ],
-            "bytes": 10004,
-            "sha256": "d4a311c6ee58cda4d258fa50d149fe14d52b1abffe1be189270df155e0b57496"
-          },
-          "savedDuration": 25.0,
-          "failure": null,
-          "scores": {
-            "earlyMotionRmse": 0.8216799665161933,
-            "motionRmse": 1.8376612309251887,
-            "savedMotionRmse": 1.8376612309251887,
-            "earlyNrmse": 0.6576270365586749,
-            "fullNrmse": 1.066306261038808,
-            "rmseByState": [
-              1.3668525323172005,
-              1.6399200618331538,
-              4.024331165307996,
-              5.629719061970108
-            ]
-          }
-        },
-        {
-          "truth": {
-            "file": "physical/pendulum/run-2/truth.f32",
-            "shape": [
-              516,
-              4
-            ],
-            "bytes": 8256,
-            "sha256": "2e49c9f757bc26b62664e21210c1ebcae6122cae49496e3979856b9f5a4a3ac7"
-          },
-          "prediction": {
-            "file": "physical/pendulum/run-2/prediction.f32",
-            "shape": [
-              516,
-              4
-            ],
-            "bytes": 8256,
-            "sha256": "2b7d6b82a3bc4cb3bfd861e9ecb419125a3b36c815ee119f4470f81a9b3bd886"
-          },
-          "mismatch": {
-            "file": "physical/pendulum/run-2/mismatch.f32",
-            "shape": [
-              516
-            ],
-            "bytes": 2064,
-            "sha256": "e002c7cdba2e14b738d41669fba4d0a63cbc5b6a800c747fb63f36ee5863f669"
-          },
-          "normalizedError": {
-            "file": "physical/pendulum/run-2/normalized-error.f32",
-            "shape": [
-              516
-            ],
-            "bytes": 2064,
-            "sha256": "835b09a0b6cbd1ad07f9ecd09733d909910a094d3dbc4b54a4ebb77af1b36553"
-          },
-          "savedDuration": 5.15,
-          "failure": {
-            "time": 5.16,
-            "reason": "Learned state left the numerical display guard; the rollout is not a completed forecast."
-          },
-          "scores": {
-            "earlyMotionRmse": 0.5557140628207603,
-            "motionRmse": null,
-            "savedMotionRmse": 1.2009558656654218,
-            "earlyNrmse": 0.44034312984187807,
-            "fullNrmse": null,
-            "rmseByState": [
-              1.0382972513017805,
-              1.5087854056349934,
-              4.904217583926318,
-              31.28475002037342
-            ]
-          }
-        },
-        {
-          "truth": {
-            "file": "physical/pendulum/run-3/truth.f32",
-            "shape": [
-              2501,
-              4
-            ],
-            "bytes": 40016,
-            "sha256": "1e17efc24ff0040e2038bc325d02c5f34ca99c27cc24f3b4042cc61df3ea5001"
-          },
-          "prediction": {
-            "file": "physical/pendulum/run-3/prediction.f32",
-            "shape": [
-              2501,
-              4
-            ],
-            "bytes": 40016,
-            "sha256": "01435feaa8863ef98dec6bed418d7de8079aa094bcaaa6135c23f0ee949af889"
-          },
-          "mismatch": {
-            "file": "physical/pendulum/run-3/mismatch.f32",
-            "shape": [
-              2501
-            ],
-            "bytes": 10004,
-            "sha256": "8d0c1ff27c74de2059f848b7de2cade01566cb1329f057dee6f9bae437fca7cb"
-          },
-          "normalizedError": {
-            "file": "physical/pendulum/run-3/normalized-error.f32",
-            "shape": [
-              2501
-            ],
-            "bytes": 10004,
-            "sha256": "8592cf2812a2b0d497b3e9fc4d334cb0d86a010376292422a2f3a0e04a931acf"
-          },
-          "savedDuration": 25.0,
-          "failure": null,
-          "scores": {
-            "earlyMotionRmse": 0.993759192606838,
-            "motionRmse": 2.1375836603939007,
-            "savedMotionRmse": 2.1375836603939007,
-            "earlyNrmse": 0.2107846149162805,
-            "fullNrmse": 1.0753004066149576,
-            "rmseByState": [
-              1.599846879680994,
-              1.6874697362037754,
-              4.132296232225057,
-              5.5279688779929534
-            ]
-          }
-        }
-      ],
-      "sourceHashes": {
-        "data.npz": "1d7bb0e1192a7c9f5b6cd6cdd6e0f5a7b7f30f2fa8cffa636af6048b0336b694",
-        "forecast.npz": "834b39d1fb4a67d6b455e46c3032450d5d86cb759990ff5faca3841239a04744",
-        "model.pt": "77a083bb48c974ed3b3310f98b984f67a3998055609297cf203648786deaddc9",
-        "initials.json": "82e2a13bfdbb24843f191e815194a7103492495731f69348d8377ddeffdecd94",
-        "training.json": "3f3136ce520cd1b632140902ac127117908a7a435a1c6fd2ccb068f9cc7c7e5c"
-      },
       "displayGuard": {
         "speedColumns": [
           2,
@@ -10131,10 +9962,713 @@
         "rule": "Stop before nonfinite state, speed over 10 times maximum training magnitude, or wheel bucket mass below -1e-5. Not a forecast-accuracy threshold."
       },
       "codeHashes": {
-        "train_physical.py": "5e8bf8e18cd03031e2efe1e10b059755e53a4090c216095ef7ca71cfd36d1d80",
-        "export_physical.py": "5d29d1b21f8cdf54b746a9240783ec6aa08bc44839b29775692ddbb38bd383e1",
-        "export_research.py": "36417212fec4ebd95c0bb348b804e81f193aa6c631c11b6c309199ec94792ad9"
-      }
+        "train_physical_comparison.py": "047f27386acd173ee8b7f040de14b6a9cc4cb1f317d4736812f4db769e1fd4fe",
+        "export_physical_comparison.py": "140015ab2bb76af6e871bfae3f760d207ac5a15fe684ba57619c45c6492829c4",
+        "train_physical.py": "5e8bf8e18cd03031e2efe1e10b059755e53a4090c216095ef7ca71cfd36d1d80"
+      },
+      "models": {
+        "polynomial-dynamics": {
+          "label": "Polynomial dynamics",
+          "degree": 2,
+          "window": 1,
+          "validationNrmse": 0.505714543439677,
+          "method": "Quadratic polynomial derivatives fitted by least squares (rcond 1e-8) on training trajectories, using sine/cosine angles and standardized state features. Fourth-order finite-difference training targets; RK4 integration with four substeps per sample. Degree fixed before test evaluation; no physical equation coefficients supplied.",
+          "sourceHashes": {
+            "data.npz": "1d7bb0e1192a7c9f5b6cd6cdd6e0f5a7b7f30f2fa8cffa636af6048b0336b694",
+            "initials.json": "82e2a13bfdbb24843f191e815194a7103492495731f69348d8377ddeffdecd94",
+            "contexts.npz": "4bdeb03d38a7c8bc2793f6cfc33131a6aa9b4ee7bb1060f2f82e907ccfa53097"
+          },
+          "artifactHashes": {
+            "model.npz": "dfaa4d2aed359ba2f32c5424874c8a08bf958be6c26144980fe03b84145b9585",
+            "forecast.npz": "85bd5cdad0a4e7cd3ca950f8e5b59d4bb0ee5cf4fd638ad8e8d45dfa3aaf7f73"
+          },
+          "forecastSha256": "85bd5cdad0a4e7cd3ca950f8e5b59d4bb0ee5cf4fd638ad8e8d45dfa3aaf7f73",
+          "runs": [
+            {
+              "truth": {
+                "file": "physical/pendulum/polynomial-dynamics/run-1/truth.f32",
+                "shape": [
+                  2260,
+                  4
+                ],
+                "bytes": 36160,
+                "sha256": "43f6e05ffd49124cbf0a3099253664c6fd639971097b5ef05cb6ebf2d511b909"
+              },
+              "prediction": {
+                "file": "physical/pendulum/polynomial-dynamics/run-1/prediction.f32",
+                "shape": [
+                  2260,
+                  4
+                ],
+                "bytes": 36160,
+                "sha256": "9afd33bf487c04c4253da187e8e383931dd8162cd8dd512a9142d196e08d55de"
+              },
+              "mismatch": {
+                "file": "physical/pendulum/polynomial-dynamics/run-1/mismatch.f32",
+                "shape": [
+                  2260
+                ],
+                "bytes": 9040,
+                "sha256": "dffbe486ccfdee74286d609be1c49aa16a48bec04723bbfeae3b3ba7e7e386c5"
+              },
+              "normalizedError": {
+                "file": "physical/pendulum/polynomial-dynamics/run-1/normalized-error.f32",
+                "shape": [
+                  2260
+                ],
+                "bytes": 9040,
+                "sha256": "006cfd042e9a602884f530226b7930e00961f70a9afa068cc7020a08ddd5173b"
+              },
+              "savedDuration": 22.59,
+              "failure": {
+                "time": 22.6,
+                "reason": "Learned state left the numerical display guard; the rollout is not a completed forecast."
+              },
+              "scores": {
+                "earlyMotionRmse": 0.8801134930143342,
+                "motionRmse": null,
+                "savedMotionRmse": 1.6640086839055233,
+                "earlyNrmse": 0.7209197689446039,
+                "fullNrmse": null,
+                "rmseByState": [
+                  1.599021784976474,
+                  1.5760432264647206,
+                  20.31261112430904,
+                  7.529622507656126
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/pendulum/polynomial-dynamics/run-2/truth.f32",
+                "shape": [
+                  1603,
+                  4
+                ],
+                "bytes": 25648,
+                "sha256": "ced3738ce13ff2fcc6666b989a97324e6858d23803a3435b92f0645ca90e2de6"
+              },
+              "prediction": {
+                "file": "physical/pendulum/polynomial-dynamics/run-2/prediction.f32",
+                "shape": [
+                  1603,
+                  4
+                ],
+                "bytes": 25648,
+                "sha256": "6bf9509c9e21e81b5115b9a296bb14ed9bfca0751dbda5a56a0e1fece81bfe11"
+              },
+              "mismatch": {
+                "file": "physical/pendulum/polynomial-dynamics/run-2/mismatch.f32",
+                "shape": [
+                  1603
+                ],
+                "bytes": 6412,
+                "sha256": "4c23d9ad0a803657034f93ae4424d5e91f421c074025ed8a92424f5edfeb74f8"
+              },
+              "normalizedError": {
+                "file": "physical/pendulum/polynomial-dynamics/run-2/normalized-error.f32",
+                "shape": [
+                  1603
+                ],
+                "bytes": 6412,
+                "sha256": "f5cac0ba0b8e63a8769c26b6dabec1e0632aa864a136258c1fd7a54b6cbf3eaa"
+              },
+              "savedDuration": 16.02,
+              "failure": {
+                "time": 16.03,
+                "reason": "Learned state left the numerical display guard; the rollout is not a completed forecast."
+              },
+              "scores": {
+                "earlyMotionRmse": 1.0915761661200867,
+                "motionRmse": null,
+                "savedMotionRmse": 1.686500288967513,
+                "earlyNrmse": 0.4570575598191485,
+                "fullNrmse": null,
+                "rmseByState": [
+                  1.4215008048913516,
+                  1.6863497639460536,
+                  11.286882139553015,
+                  44.32167845157228
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/pendulum/polynomial-dynamics/run-3/truth.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "1e17efc24ff0040e2038bc325d02c5f34ca99c27cc24f3b4042cc61df3ea5001"
+              },
+              "prediction": {
+                "file": "physical/pendulum/polynomial-dynamics/run-3/prediction.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "4ce4b59598c32234cbe12315cb99a57ba4ecbf19cad7f68aa5958258123ddbca"
+              },
+              "mismatch": {
+                "file": "physical/pendulum/polynomial-dynamics/run-3/mismatch.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "8f3958297590afe014a6e480becb7c8e75c3d3feccbe2365b6904dd10ea60f3c"
+              },
+              "normalizedError": {
+                "file": "physical/pendulum/polynomial-dynamics/run-3/normalized-error.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "3652a57114ab8bb633d59d74db16d789b274344aa80a43af23a933084c792e3c"
+              },
+              "savedDuration": 25.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.9962433601522075,
+                "motionRmse": 1.70844941972077,
+                "savedMotionRmse": 1.70844941972077,
+                "earlyNrmse": 0.6717207077740166,
+                "fullNrmse": 1.6657930044490152,
+                "rmseByState": [
+                  1.4592097780280002,
+                  1.9888849466216483,
+                  7.437035226439984,
+                  6.927890450946505
+                ]
+              }
+            }
+          ]
+        },
+        "transformer": {
+          "label": "Transformer",
+          "seed": 7,
+          "updates": 3200,
+          "selectedUpdate": 2400,
+          "window": 24,
+          "validationNrmse": 0.2820807657713229,
+          "method": "Two attention encoder layers, width 48, four heads, feed-forward width 96, sinusoidal positions. Reads 24 states with sine/cosine angles; predicts full-state increments; four-step recursive loss; AdamW, batch 256; checkpoint selected on separate 180-step validation forecasts.",
+          "sourceHashes": {
+            "data.npz": "1d7bb0e1192a7c9f5b6cd6cdd6e0f5a7b7f30f2fa8cffa636af6048b0336b694",
+            "initials.json": "82e2a13bfdbb24843f191e815194a7103492495731f69348d8377ddeffdecd94",
+            "contexts.npz": "4bdeb03d38a7c8bc2793f6cfc33131a6aa9b4ee7bb1060f2f82e907ccfa53097"
+          },
+          "artifactHashes": {
+            "model.pt": "1e1bc8cb82fa2a127ab6c72730761b92443a5b641c61e1b0ade279eefd8efbfa",
+            "forecast.npz": "5dc7a7433f196f6f7e7e52d3e153757ff8d7624c047ad688310ea4b781166bdd"
+          },
+          "forecastSha256": "5dc7a7433f196f6f7e7e52d3e153757ff8d7624c047ad688310ea4b781166bdd",
+          "runs": [
+            {
+              "truth": {
+                "file": "physical/pendulum/transformer/run-1/truth.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "6efe6d6ae3ecf1cef696b5a34d804fc4b662e919fde3d929de4461bee7f1524b"
+              },
+              "prediction": {
+                "file": "physical/pendulum/transformer/run-1/prediction.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "397b66181af496135770a2cd64c19bdb08a1d1816301279ed0893b8dcf4227d5"
+              },
+              "mismatch": {
+                "file": "physical/pendulum/transformer/run-1/mismatch.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "c8eab2b6d5dc3bca9a99097938fc0823250027e1885ad953894faa4f2d438d1b"
+              },
+              "normalizedError": {
+                "file": "physical/pendulum/transformer/run-1/normalized-error.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "03b0f2e2a232fbcde748ad7e00bd9779611dc9be942d9ec14cf90b6fd5b75983"
+              },
+              "savedDuration": 25.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.5095901511077713,
+                "motionRmse": 1.35730905525823,
+                "savedMotionRmse": 1.35730905525823,
+                "earlyNrmse": 0.5028082442714742,
+                "fullNrmse": 1.3108022267437955,
+                "rmseByState": [
+                  1.7543439219173902,
+                  1.6673499709771438,
+                  5.510006713685394,
+                  6.012582590606081
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/pendulum/transformer/run-2/truth.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "0a36c1671d9e0dd188f1cd172112ed8279a96d61e98246a559b622cabe0196bd"
+              },
+              "prediction": {
+                "file": "physical/pendulum/transformer/run-2/prediction.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "38763165008e5e4882f05b662dcaa8f194328230deda1f40efce93c2d796c8f6"
+              },
+              "mismatch": {
+                "file": "physical/pendulum/transformer/run-2/mismatch.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "f3ff4a8297d74790f68fce4577e44bfe4ab5f3ea47a05caf229d00fe88c8fdc5"
+              },
+              "normalizedError": {
+                "file": "physical/pendulum/transformer/run-2/normalized-error.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "e54e9ab8c72bb03bfff7dbccee964fec998ecd6c15767325809bdd8503bbf698"
+              },
+              "savedDuration": 25.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.4954427795958698,
+                "motionRmse": 1.347065468170456,
+                "savedMotionRmse": 1.347065468170456,
+                "earlyNrmse": 0.2523083528787665,
+                "fullNrmse": 1.0348389760554908,
+                "rmseByState": [
+                  1.0376223057067622,
+                  1.7582684214498534,
+                  3.249548484710981,
+                  6.291602368665518
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/pendulum/transformer/run-3/truth.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "1e17efc24ff0040e2038bc325d02c5f34ca99c27cc24f3b4042cc61df3ea5001"
+              },
+              "prediction": {
+                "file": "physical/pendulum/transformer/run-3/prediction.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "675887879f7b809816cf4802a4159e1008855a1579c969a48cc5d46e8f90545c"
+              },
+              "mismatch": {
+                "file": "physical/pendulum/transformer/run-3/mismatch.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "44477367db0f085be2c9ab50fa7282a251a77ada652a0ac3031aab90c8e8ec13"
+              },
+              "normalizedError": {
+                "file": "physical/pendulum/transformer/run-3/normalized-error.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "84eddc6b1ec6337d963bbceff7c5566d831357aa50dd6ccc48b00be92688591d"
+              },
+              "savedDuration": 25.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.8557627790930054,
+                "motionRmse": 1.5079905664409954,
+                "savedMotionRmse": 1.5079905664409954,
+                "earlyNrmse": 0.3796568734680885,
+                "fullNrmse": 1.162954194436549,
+                "rmseByState": [
+                  1.382419476717942,
+                  1.7053455903839645,
+                  4.313808859716272,
+                  6.26377898213644
+                ]
+              }
+            }
+          ]
+        },
+        "gru": {
+          "label": "GRU",
+          "seed": 7,
+          "updates": 3200,
+          "selectedUpdate": 1200,
+          "window": 24,
+          "validationNrmse": 0.19164565541980325,
+          "method": "Two GRU layers of 64 units. Reads 24 states with sine/cosine angles; predicts full-state increments; four-step recursive loss; AdamW, batch 256; checkpoint selected on separate 180-step validation forecasts.",
+          "sourceHashes": {
+            "data.npz": "1d7bb0e1192a7c9f5b6cd6cdd6e0f5a7b7f30f2fa8cffa636af6048b0336b694",
+            "initials.json": "82e2a13bfdbb24843f191e815194a7103492495731f69348d8377ddeffdecd94",
+            "contexts.npz": "4bdeb03d38a7c8bc2793f6cfc33131a6aa9b4ee7bb1060f2f82e907ccfa53097"
+          },
+          "artifactHashes": {
+            "model.pt": "7475ecad0b01c44acbe26a10ee6de5d29758dadf42e6f9454436de31a13eaa87",
+            "forecast.npz": "da725f6568c80772547d55e17403635b9220d03cdf3a66ff5df219813d92863e"
+          },
+          "forecastSha256": "da725f6568c80772547d55e17403635b9220d03cdf3a66ff5df219813d92863e",
+          "runs": [
+            {
+              "truth": {
+                "file": "physical/pendulum/gru/run-1/truth.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "6efe6d6ae3ecf1cef696b5a34d804fc4b662e919fde3d929de4461bee7f1524b"
+              },
+              "prediction": {
+                "file": "physical/pendulum/gru/run-1/prediction.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "adfecc6d49489ebcab22a6c800de2fa8fcf02746c457fe337df4887f776901eb"
+              },
+              "mismatch": {
+                "file": "physical/pendulum/gru/run-1/mismatch.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "967f16d05f40bed62445aa246813ed276c6696c1a15b923907073180f9bc6b99"
+              },
+              "normalizedError": {
+                "file": "physical/pendulum/gru/run-1/normalized-error.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "0a4579c3340788ef80868198c904acb76e184638d51137e10903fdb37503a292"
+              },
+              "savedDuration": 25.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.5137643421065055,
+                "motionRmse": 1.6987748885918996,
+                "savedMotionRmse": 1.6987748885918996,
+                "earlyNrmse": 0.5087924985419575,
+                "fullNrmse": 1.3894238490093243,
+                "rmseByState": [
+                  1.636063970073342,
+                  1.8572484835798422,
+                  5.821950993696883,
+                  6.447828960496052
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/pendulum/gru/run-2/truth.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "0a36c1671d9e0dd188f1cd172112ed8279a96d61e98246a559b622cabe0196bd"
+              },
+              "prediction": {
+                "file": "physical/pendulum/gru/run-2/prediction.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "32ec6ce9bcf74d827bdcf961de4b4b8f800e2d7692c122ebb1e0fbf0262d310a"
+              },
+              "mismatch": {
+                "file": "physical/pendulum/gru/run-2/mismatch.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "48c6b68023fc9ae8cdc13e965723cbc53915f9b17f7dc821975719b5665adf25"
+              },
+              "normalizedError": {
+                "file": "physical/pendulum/gru/run-2/normalized-error.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "147689af3abfed500105ee3003765d4870afd5ede132842c140ce8c6509a9ad7"
+              },
+              "savedDuration": 25.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.5202804736400239,
+                "motionRmse": 1.6226589619970166,
+                "savedMotionRmse": 1.6226589619970166,
+                "earlyNrmse": 0.521035276161769,
+                "fullNrmse": 1.0298902533143697,
+                "rmseByState": [
+                  1.1493209073387778,
+                  1.7816636170728928,
+                  3.7061299769168725,
+                  5.703933459289623
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/pendulum/gru/run-3/truth.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "1e17efc24ff0040e2038bc325d02c5f34ca99c27cc24f3b4042cc61df3ea5001"
+              },
+              "prediction": {
+                "file": "physical/pendulum/gru/run-3/prediction.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "a5ee2d35f052c1843ebfb41af44e335767af8dfa5a4f1ca00645927870fdfaad"
+              },
+              "mismatch": {
+                "file": "physical/pendulum/gru/run-3/mismatch.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "aee83d7c0dde406cc70ab60bda12d44827e94913ea8ea2291f00b7a534d1435c"
+              },
+              "normalizedError": {
+                "file": "physical/pendulum/gru/run-3/normalized-error.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "7b4c588ff66c0ee583ef835017bfd1d7168b23e4b02f404b6b0212e871eccd9f"
+              },
+              "savedDuration": 25.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.7017536854725358,
+                "motionRmse": 1.7963433953229317,
+                "savedMotionRmse": 1.7963433953229317,
+                "earlyNrmse": 0.6050143203994864,
+                "fullNrmse": 1.5988072818945411,
+                "rmseByState": [
+                  1.6734538198529076,
+                  1.7071765173400353,
+                  6.905762954403549,
+                  7.079924605144525
+                ]
+              }
+            }
+          ]
+        },
+        "mlp": {
+          "seed": 7,
+          "updates": 3200,
+          "method": "Predict state increments from sin/cos angles, velocities and (for the wheel) every bucket mass; 2 hidden layers of 128 SiLU units; four-step recursive loss; checkpoint selected on separate 180-step validation forecasts.",
+          "sourceHashes": {
+            "data.npz": "1d7bb0e1192a7c9f5b6cd6cdd6e0f5a7b7f30f2fa8cffa636af6048b0336b694",
+            "forecast.npz": "834b39d1fb4a67d6b455e46c3032450d5d86cb759990ff5faca3841239a04744",
+            "model.pt": "77a083bb48c974ed3b3310f98b984f67a3998055609297cf203648786deaddc9",
+            "initials.json": "82e2a13bfdbb24843f191e815194a7103492495731f69348d8377ddeffdecd94",
+            "training.json": "3f3136ce520cd1b632140902ac127117908a7a435a1c6fd2ccb068f9cc7c7e5c"
+          },
+          "label": "Residual MLP",
+          "window": 1,
+          "forecastSha256": "834b39d1fb4a67d6b455e46c3032450d5d86cb759990ff5faca3841239a04744",
+          "runs": [
+            {
+              "truth": {
+                "file": "physical/pendulum/mlp/run-1/truth.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "6efe6d6ae3ecf1cef696b5a34d804fc4b662e919fde3d929de4461bee7f1524b"
+              },
+              "prediction": {
+                "file": "physical/pendulum/mlp/run-1/prediction.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "798c26787f3ea504c3376b29d00dc3c8477c65999259377ac6400be253040c7b"
+              },
+              "mismatch": {
+                "file": "physical/pendulum/mlp/run-1/mismatch.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "dacf860c90a2cc0ce5a19c6478292ca8e50da17df7bbf982cf675e70b9566cc8"
+              },
+              "normalizedError": {
+                "file": "physical/pendulum/mlp/run-1/normalized-error.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "d4a311c6ee58cda4d258fa50d149fe14d52b1abffe1be189270df155e0b57496"
+              },
+              "savedDuration": 25.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.8216799665161933,
+                "motionRmse": 1.8376612309251887,
+                "savedMotionRmse": 1.8376612309251887,
+                "earlyNrmse": 0.6576270365586749,
+                "fullNrmse": 1.066306261038808,
+                "rmseByState": [
+                  1.3668525323172005,
+                  1.6399200618331538,
+                  4.024331165307996,
+                  5.629719061970108
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/pendulum/mlp/run-2/truth.f32",
+                "shape": [
+                  516,
+                  4
+                ],
+                "bytes": 8256,
+                "sha256": "2e49c9f757bc26b62664e21210c1ebcae6122cae49496e3979856b9f5a4a3ac7"
+              },
+              "prediction": {
+                "file": "physical/pendulum/mlp/run-2/prediction.f32",
+                "shape": [
+                  516,
+                  4
+                ],
+                "bytes": 8256,
+                "sha256": "2b7d6b82a3bc4cb3bfd861e9ecb419125a3b36c815ee119f4470f81a9b3bd886"
+              },
+              "mismatch": {
+                "file": "physical/pendulum/mlp/run-2/mismatch.f32",
+                "shape": [
+                  516
+                ],
+                "bytes": 2064,
+                "sha256": "e002c7cdba2e14b738d41669fba4d0a63cbc5b6a800c747fb63f36ee5863f669"
+              },
+              "normalizedError": {
+                "file": "physical/pendulum/mlp/run-2/normalized-error.f32",
+                "shape": [
+                  516
+                ],
+                "bytes": 2064,
+                "sha256": "835b09a0b6cbd1ad07f9ecd09733d909910a094d3dbc4b54a4ebb77af1b36553"
+              },
+              "savedDuration": 5.15,
+              "failure": {
+                "time": 5.16,
+                "reason": "Learned state left the numerical display guard; the rollout is not a completed forecast."
+              },
+              "scores": {
+                "earlyMotionRmse": 0.5557140628207603,
+                "motionRmse": null,
+                "savedMotionRmse": 1.2009558656654218,
+                "earlyNrmse": 0.44034312984187807,
+                "fullNrmse": null,
+                "rmseByState": [
+                  1.0382972513017805,
+                  1.5087854056349934,
+                  4.904217583926318,
+                  31.28475002037342
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/pendulum/mlp/run-3/truth.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "1e17efc24ff0040e2038bc325d02c5f34ca99c27cc24f3b4042cc61df3ea5001"
+              },
+              "prediction": {
+                "file": "physical/pendulum/mlp/run-3/prediction.f32",
+                "shape": [
+                  2501,
+                  4
+                ],
+                "bytes": 40016,
+                "sha256": "01435feaa8863ef98dec6bed418d7de8079aa094bcaaa6135c23f0ee949af889"
+              },
+              "mismatch": {
+                "file": "physical/pendulum/mlp/run-3/mismatch.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "8d0c1ff27c74de2059f848b7de2cade01566cb1329f057dee6f9bae437fca7cb"
+              },
+              "normalizedError": {
+                "file": "physical/pendulum/mlp/run-3/normalized-error.f32",
+                "shape": [
+                  2501
+                ],
+                "bytes": 10004,
+                "sha256": "8592cf2812a2b0d497b3e9fc4d334cb0d86a010376292422a2f3a0e04a931acf"
+              },
+              "savedDuration": 25.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.993759192606838,
+                "motionRmse": 2.1375836603939007,
+                "savedMotionRmse": 2.1375836603939007,
+                "earlyNrmse": 0.2107846149162805,
+                "fullNrmse": 1.0753004066149576,
+                "rmseByState": [
+                  1.599846879680994,
+                  1.6874697362037754,
+                  4.132296232225057,
+                  5.5279688779929534
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "contextSamples": 24,
+      "comparisonArtifacts": "/app/more_studies/chaos-private/chaos-forecasting-ai/results/physical-forecasting/comparison-2026-11-12"
     },
     "waterwheel": {
       "dt": 0.02,
@@ -10142,12 +10676,9 @@
       "warmup": 12,
       "dimensions": 26,
       "bucketCount": 24,
-      "model": "Residual MLP",
       "trainingRuns": 32,
       "validationRuns": 4,
       "testRuns": 3,
-      "seed": 7,
-      "updates": 3200,
       "solver": "DOP853 rtol=1e-10 atol=1e-12",
       "trainingScales": [
         5.486970901489258,
@@ -10177,235 +10708,6 @@
         0.10477279126644135,
         0.10411784797906876
       ],
-      "method": "Predict state increments from sin/cos angles, velocities and (for the wheel) every bucket mass; 2 hidden layers of 128 SiLU units; four-step recursive loss; checkpoint selected on separate 180-step validation forecasts.",
-      "runs": [
-        {
-          "truth": {
-            "file": "physical/waterwheel/run-1/truth.f32",
-            "shape": [
-              2251,
-              26
-            ],
-            "bytes": 234104,
-            "sha256": "d34cb498742fba92017e387eba19d5feffa96fbe504612aae9c7805942fdbb47"
-          },
-          "prediction": {
-            "file": "physical/waterwheel/run-1/prediction.f32",
-            "shape": [
-              2251,
-              26
-            ],
-            "bytes": 234104,
-            "sha256": "09c11fe3e30927006095e56225c0666d419ff1c4866425782369e1aebfd29938"
-          },
-          "mismatch": {
-            "file": "physical/waterwheel/run-1/mismatch.f32",
-            "shape": [
-              2251
-            ],
-            "bytes": 9004,
-            "sha256": "6b45618c799427986c2a9ddadf1ea0e87c258ca61cda818bb0359ae9b351bad3"
-          },
-          "normalizedError": {
-            "file": "physical/waterwheel/run-1/normalized-error.f32",
-            "shape": [
-              2251
-            ],
-            "bytes": 9004,
-            "sha256": "f3769cfda9517e3ed9d353146657481cf6c7bbca85e2dcdddaa3e0aed4cd6d26"
-          },
-          "savedDuration": 45.0,
-          "failure": null,
-          "scores": {
-            "earlyMotionRmse": 0.5863906871988838,
-            "motionRmse": 2.0786781181732827,
-            "savedMotionRmse": 2.0786781181732827,
-            "earlyNrmse": 0.08513555706191527,
-            "fullNrmse": 0.31642372100207394,
-            "rmseByState": [
-              1.478081014859018,
-              2.0786781181732805,
-              0.01965783053027567,
-              0.018595021212604524,
-              0.016833305889295425,
-              0.01843106301519221,
-              0.018000183298037663,
-              0.023080449386613727,
-              0.02224491550449486,
-              0.019679123141662383,
-              0.018884154222145632,
-              0.02436765623046796,
-              0.02766374613031059,
-              0.03171917578750273,
-              0.024940324194196492,
-              0.02013206217202576,
-              0.019855737911102286,
-              0.019747433663803847,
-              0.018195508327355368,
-              0.020580687891578308,
-              0.021978921320539118,
-              0.020283403152007495,
-              0.020408301007344323,
-              0.01724849469785493,
-              0.015569257333891707,
-              0.016234562216191302
-            ]
-          }
-        },
-        {
-          "truth": {
-            "file": "physical/waterwheel/run-2/truth.f32",
-            "shape": [
-              2251,
-              26
-            ],
-            "bytes": 234104,
-            "sha256": "4b38fa7340ded851b4e0609bf53c8c0f9b2a2acaab1968b6bd7b13b1859b91a0"
-          },
-          "prediction": {
-            "file": "physical/waterwheel/run-2/prediction.f32",
-            "shape": [
-              2251,
-              26
-            ],
-            "bytes": 234104,
-            "sha256": "6bd1b3bf8ff5fc6e54b4df5c11278146620b047f350853f7092fdfa1f9808e08"
-          },
-          "mismatch": {
-            "file": "physical/waterwheel/run-2/mismatch.f32",
-            "shape": [
-              2251
-            ],
-            "bytes": 9004,
-            "sha256": "64e713bd29e3e323ce68177519ca643dd046f650b5ed88a6d9e41f241146e0ea"
-          },
-          "normalizedError": {
-            "file": "physical/waterwheel/run-2/normalized-error.f32",
-            "shape": [
-              2251
-            ],
-            "bytes": 9004,
-            "sha256": "e730c89df57f9b393ced28a9c0bfecc6b3149e9bb9248084d402176546e60d82"
-          },
-          "savedDuration": 45.0,
-          "failure": null,
-          "scores": {
-            "earlyMotionRmse": 0.015903929088192496,
-            "motionRmse": 2.0882105896359233,
-            "savedMotionRmse": 2.0882105896359233,
-            "earlyNrmse": 0.003665012858109646,
-            "fullNrmse": 0.29265953899096314,
-            "rmseByState": [
-              1.3816764455854282,
-              2.0882105896359238,
-              0.016156841827910093,
-              0.016991855055414208,
-              0.016631672710097876,
-              0.018068316010022463,
-              0.018495660865133576,
-              0.01861067117413268,
-              0.01620592514089102,
-              0.012824939671877743,
-              0.012794987806712796,
-              0.01502507438377534,
-              0.018261908109506217,
-              0.02180276096555769,
-              0.018022370281001253,
-              0.018946303010148064,
-              0.018403454978063824,
-              0.018010001324488784,
-              0.016252801184567345,
-              0.014674151191738462,
-              0.012412503258514328,
-              0.010543463400426218,
-              0.011146011903844793,
-              0.011642119830725585,
-              0.01619066606047946,
-              0.017388646621389513
-            ]
-          }
-        },
-        {
-          "truth": {
-            "file": "physical/waterwheel/run-3/truth.f32",
-            "shape": [
-              2251,
-              26
-            ],
-            "bytes": 234104,
-            "sha256": "9820754d42aa6c26a5024d43be3526c0e83acc10fe0e04cdd80c035e4c5f5eff"
-          },
-          "prediction": {
-            "file": "physical/waterwheel/run-3/prediction.f32",
-            "shape": [
-              2251,
-              26
-            ],
-            "bytes": 234104,
-            "sha256": "9a0b29c097da24af78c8f28b3b54dbbaf07ccd32ca6e4a05ace0e3d74d909c06"
-          },
-          "mismatch": {
-            "file": "physical/waterwheel/run-3/mismatch.f32",
-            "shape": [
-              2251
-            ],
-            "bytes": 9004,
-            "sha256": "fae9b8025b4f2350ab7989c660b4dec419b71b741007d3bfe08ff047ff9ce021"
-          },
-          "normalizedError": {
-            "file": "physical/waterwheel/run-3/normalized-error.f32",
-            "shape": [
-              2251
-            ],
-            "bytes": 9004,
-            "sha256": "4161052eb824a66fe99c353fe0c12c0eda85657361e51498f4ff98a0fdcc8411"
-          },
-          "savedDuration": 45.0,
-          "failure": null,
-          "scores": {
-            "earlyMotionRmse": 0.037963852423318706,
-            "motionRmse": 2.3581794629270605,
-            "savedMotionRmse": 2.3581794629270605,
-            "earlyNrmse": 0.005692333653593644,
-            "fullNrmse": 0.34258922199718,
-            "rmseByState": [
-              1.7352322559785718,
-              2.35817946292706,
-              0.018223235407636502,
-              0.020190235368302605,
-              0.024446084375972996,
-              0.025583770148782863,
-              0.025702023824035927,
-              0.023662049495327037,
-              0.022242600268567673,
-              0.020174413392235482,
-              0.01719867933519063,
-              0.014344789546773503,
-              0.015492783028137152,
-              0.017803715946329332,
-              0.02246046023269155,
-              0.023885667554498214,
-              0.026465285334741098,
-              0.02517420945366511,
-              0.022060234942892012,
-              0.020802887130108784,
-              0.020536944313140647,
-              0.0163785876886222,
-              0.014746803990196691,
-              0.013509199347187893,
-              0.017549955518234395,
-              0.018539656165219458
-            ]
-          }
-        }
-      ],
-      "sourceHashes": {
-        "data.npz": "4723553c563fdfa0a70efdb85b43d7024a475d7543ef4952e83df4a288ce4a35",
-        "forecast.npz": "a215d129b1d4be02b123eac83f08d66df0e4d252a8b1eb10513235104489da41",
-        "model.pt": "2bb213738efbed2d5bd335a4e6a196049cbc4585a832c09f4e4a54a8f438ed13",
-        "initials.json": "15d5d1d6e2db1f4dfd17fc50b5a051776fb177f7e738d199673d9e7ef3f0f388",
-        "training.json": "ccc6e53ec7285f3f8883631a0588e8e6b91c5de8858209524fe9021e11cd03c9"
-      },
       "displayGuard": {
         "speedColumns": [
           1
@@ -10416,10 +10718,977 @@
         "rule": "Stop before nonfinite state, speed over 10 times maximum training magnitude, or wheel bucket mass below -1e-5. Not a forecast-accuracy threshold."
       },
       "codeHashes": {
-        "train_physical.py": "5e8bf8e18cd03031e2efe1e10b059755e53a4090c216095ef7ca71cfd36d1d80",
-        "export_physical.py": "5d29d1b21f8cdf54b746a9240783ec6aa08bc44839b29775692ddbb38bd383e1",
-        "export_research.py": "36417212fec4ebd95c0bb348b804e81f193aa6c631c11b6c309199ec94792ad9"
-      }
+        "train_physical_comparison.py": "047f27386acd173ee8b7f040de14b6a9cc4cb1f317d4736812f4db769e1fd4fe",
+        "export_physical_comparison.py": "140015ab2bb76af6e871bfae3f760d207ac5a15fe684ba57619c45c6492829c4",
+        "train_physical.py": "5e8bf8e18cd03031e2efe1e10b059755e53a4090c216095ef7ca71cfd36d1d80"
+      },
+      "models": {
+        "polynomial-dynamics": {
+          "label": "Polynomial dynamics",
+          "degree": 2,
+          "window": 1,
+          "validationNrmse": null,
+          "method": "Quadratic polynomial derivatives fitted by least squares (rcond 1e-8) on training trajectories, using sine/cosine angles and standardized state features. Fourth-order finite-difference training targets; RK4 integration with four substeps per sample. Degree fixed before test evaluation; no physical equation coefficients supplied.",
+          "sourceHashes": {
+            "data.npz": "4723553c563fdfa0a70efdb85b43d7024a475d7543ef4952e83df4a288ce4a35",
+            "initials.json": "15d5d1d6e2db1f4dfd17fc50b5a051776fb177f7e738d199673d9e7ef3f0f388",
+            "contexts.npz": "dd9179adbdd8a6807e4ea619c8dd25804ae145778b6cf94bb7f27b3beabe8582"
+          },
+          "artifactHashes": {
+            "model.npz": "7dcec582b6f8ec8fbc62128b25a507ff8b2d4305c1c854e4160631426a53447b",
+            "forecast.npz": "12c3b93a7ceff07efb39a1625b24ad9115f416c29def22b9e78ace13e3fd8832"
+          },
+          "forecastSha256": "12c3b93a7ceff07efb39a1625b24ad9115f416c29def22b9e78ace13e3fd8832",
+          "runs": [
+            {
+              "truth": {
+                "file": "physical/waterwheel/polynomial-dynamics/run-1/truth.f32",
+                "shape": [
+                  152,
+                  26
+                ],
+                "bytes": 15808,
+                "sha256": "3847484f0396b7f1524a955ad95bf93b73cb4982e1fe08d4373b989f126dc9b2"
+              },
+              "prediction": {
+                "file": "physical/waterwheel/polynomial-dynamics/run-1/prediction.f32",
+                "shape": [
+                  152,
+                  26
+                ],
+                "bytes": 15808,
+                "sha256": "755806a8277cba8c14067a12d576de6a324a0c1ace6c9bff15d22a70af66e3bc"
+              },
+              "mismatch": {
+                "file": "physical/waterwheel/polynomial-dynamics/run-1/mismatch.f32",
+                "shape": [
+                  152
+                ],
+                "bytes": 608,
+                "sha256": "0b4e733ce2c5cc51c6face7435a7362684d1aecb9bf52b9a3fc6e2b0aa15f23f"
+              },
+              "normalizedError": {
+                "file": "physical/waterwheel/polynomial-dynamics/run-1/normalized-error.f32",
+                "shape": [
+                  152
+                ],
+                "bytes": 608,
+                "sha256": "4a93d8cfd76aab286e428aa61dbae965da25079de94e06fa575b7723b9ac7c3a"
+              },
+              "savedDuration": 3.02,
+              "failure": {
+                "time": 3.04,
+                "reason": "Learned state left the numerical display guard; the rollout is not a completed forecast."
+              },
+              "scores": {
+                "earlyMotionRmse": 0.0015244355022506451,
+                "motionRmse": null,
+                "savedMotionRmse": 0.001966105610591856,
+                "earlyNrmse": 0.05757179416154271,
+                "fullNrmse": null,
+                "rmseByState": [
+                  0.0006856011196902487,
+                  0.0019661056105918554,
+                  0.03493344519158699,
+                  0.037579746172616,
+                  0.014889434433852423,
+                  0.019258815912754225,
+                  0.03931521383760537,
+                  0.033111470275653684,
+                  0.006690211094587676,
+                  0.02329020315587164,
+                  0.03514067572596749,
+                  0.024905794156815715,
+                  0.003294473746641573,
+                  0.019568746602328865,
+                  0.027091407522362367,
+                  0.020289077962468486,
+                  0.005648051643178067,
+                  0.011570179491814023,
+                  0.022145476329206926,
+                  0.023661253232353692,
+                  0.01399030407189553,
+                  0.007034614867524569,
+                  0.025780310589000478,
+                  0.03271705495287984,
+                  0.019221754171337837,
+                  0.010675283934722054
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/waterwheel/polynomial-dynamics/run-2/truth.f32",
+                "shape": [
+                  100,
+                  26
+                ],
+                "bytes": 10400,
+                "sha256": "6a73336438c9780bd0c49337c2351284f3ec30aca1939023ed4c4e36eca443a8"
+              },
+              "prediction": {
+                "file": "physical/waterwheel/polynomial-dynamics/run-2/prediction.f32",
+                "shape": [
+                  100,
+                  26
+                ],
+                "bytes": 10400,
+                "sha256": "d3b2eb00283990ca60288af3345a7e2aeb14be0e0397534b7ce0c136b177c1c6"
+              },
+              "mismatch": {
+                "file": "physical/waterwheel/polynomial-dynamics/run-2/mismatch.f32",
+                "shape": [
+                  100
+                ],
+                "bytes": 400,
+                "sha256": "552fbc34e449cacf0ab022bd1cc9352e69490963b180aa9735d01d9488179402"
+              },
+              "normalizedError": {
+                "file": "physical/waterwheel/polynomial-dynamics/run-2/normalized-error.f32",
+                "shape": [
+                  100
+                ],
+                "bytes": 400,
+                "sha256": "5143aa8f6420dd55064f59481bfe15895455c17d1edfb7126320221b538d43f1"
+              },
+              "savedDuration": 1.98,
+              "failure": {
+                "time": 2.0,
+                "reason": "Learned state left the numerical display guard; the rollout is not a completed forecast."
+              },
+              "scores": {
+                "earlyMotionRmse": 5.178348960564793e-05,
+                "motionRmse": null,
+                "savedMotionRmse": 5.2101067346567926e-05,
+                "earlyNrmse": 0.1562004213857846,
+                "fullNrmse": null,
+                "rmseByState": [
+                  5.157238404382078e-05,
+                  5.210106734656793e-05,
+                  0.04559063080972393,
+                  0.05484072230814217,
+                  0.030311762270233016,
+                  0.02150427200719573,
+                  0.05106015188855162,
+                  0.05054981430689408,
+                  0.022131860379703855,
+                  0.02594084460097993,
+                  0.046883489898952406,
+                  0.041390563474474305,
+                  0.017942852203482202,
+                  0.022429382090658638,
+                  0.03775139527570916,
+                  0.03584682139590545,
+                  0.020357606341677728,
+                  0.015105447231877676,
+                  0.031884557326214064,
+                  0.03922304566507331,
+                  0.02850366998076337,
+                  0.01203660675162389,
+                  0.035527725810035715,
+                  0.049012819857035345,
+                  0.034132589816585054,
+                  0.014037677954254537
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/waterwheel/polynomial-dynamics/run-3/truth.f32",
+                "shape": [
+                  348,
+                  26
+                ],
+                "bytes": 36192,
+                "sha256": "6cb6c91a7c11dcc4aaada0c8c9e7f2c93f5a928ffdcf64b831aa3bb6e1511abf"
+              },
+              "prediction": {
+                "file": "physical/waterwheel/polynomial-dynamics/run-3/prediction.f32",
+                "shape": [
+                  348,
+                  26
+                ],
+                "bytes": 36192,
+                "sha256": "141ca5e24000a89f9522c977512ddc04eba33616d9713de790766d16393343b3"
+              },
+              "mismatch": {
+                "file": "physical/waterwheel/polynomial-dynamics/run-3/mismatch.f32",
+                "shape": [
+                  348
+                ],
+                "bytes": 1392,
+                "sha256": "3865d56e2d64e17bf8121878136dc27b19d79696c21f707a399564560eeafd4f"
+              },
+              "normalizedError": {
+                "file": "physical/waterwheel/polynomial-dynamics/run-3/normalized-error.f32",
+                "shape": [
+                  348
+                ],
+                "bytes": 1392,
+                "sha256": "1b3930cd07e548c2e2546c241d399a50d3a2493f93ccd454ef0ce9b159c54403"
+              },
+              "savedDuration": 6.94,
+              "failure": {
+                "time": 6.96,
+                "reason": "Learned state left the numerical display guard; the rollout is not a completed forecast."
+              },
+              "scores": {
+                "earlyMotionRmse": 4.1826314839022355e-05,
+                "motionRmse": null,
+                "savedMotionRmse": 0.00036407824325656793,
+                "earlyNrmse": 0.004698150077552324,
+                "fullNrmse": null,
+                "rmseByState": [
+                  0.0005269604619203857,
+                  0.00036407824325656804,
+                  0.03050111910987323,
+                  0.029662819052373616,
+                  0.008610062163189002,
+                  0.01973854011320594,
+                  0.03375190942357091,
+                  0.025167036985006698,
+                  0.0036891745596744005,
+                  0.022698445980316447,
+                  0.029512013187216708,
+                  0.018188588533719716,
+                  0.004322373351196748,
+                  0.018830068058953316,
+                  0.022547554681017122,
+                  0.014725777701291687,
+                  0.0027222820824431408,
+                  0.011693983492463712,
+                  0.01867802430000545,
+                  0.018014908148045235,
+                  0.008817570924661313,
+                  0.007693403771833483,
+                  0.022350675311307376,
+                  0.02596007548019525,
+                  0.012836725603085039,
+                  0.011794071084076714
+                ]
+              }
+            }
+          ]
+        },
+        "transformer": {
+          "label": "Transformer",
+          "seed": 7,
+          "updates": 3200,
+          "selectedUpdate": 2800,
+          "window": 24,
+          "validationNrmse": 0.022770052687041884,
+          "method": "Two attention encoder layers, width 48, four heads, feed-forward width 96, sinusoidal positions. Reads 24 states with sine/cosine angles; predicts full-state increments; four-step recursive loss; AdamW, batch 256; checkpoint selected on separate 180-step validation forecasts.",
+          "sourceHashes": {
+            "data.npz": "4723553c563fdfa0a70efdb85b43d7024a475d7543ef4952e83df4a288ce4a35",
+            "initials.json": "15d5d1d6e2db1f4dfd17fc50b5a051776fb177f7e738d199673d9e7ef3f0f388",
+            "contexts.npz": "dd9179adbdd8a6807e4ea619c8dd25804ae145778b6cf94bb7f27b3beabe8582"
+          },
+          "artifactHashes": {
+            "model.pt": "e4d668f0a79b0b3446357661b355cac66eae1c8cec40682cb81f5c766e45c4d8",
+            "forecast.npz": "39b05626e39e45c5c3bc4d408e37b02dbe0ed10d6940ca391aeb9c66b3784bae"
+          },
+          "forecastSha256": "39b05626e39e45c5c3bc4d408e37b02dbe0ed10d6940ca391aeb9c66b3784bae",
+          "runs": [
+            {
+              "truth": {
+                "file": "physical/waterwheel/transformer/run-1/truth.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "d34cb498742fba92017e387eba19d5feffa96fbe504612aae9c7805942fdbb47"
+              },
+              "prediction": {
+                "file": "physical/waterwheel/transformer/run-1/prediction.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "3a19576e2b92ed502d9b133664b520e802c73e900b39f7c1430f8e5ea27bf908"
+              },
+              "mismatch": {
+                "file": "physical/waterwheel/transformer/run-1/mismatch.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "4fac1509a5c1e5c9b8b96e9a6243b8ffa1c189f8b35f009b36287e00a75c55a7"
+              },
+              "normalizedError": {
+                "file": "physical/waterwheel/transformer/run-1/normalized-error.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "cae4f96049cd1ae4cc345ee280213e24f48ffa8b8b6c95fac643cfee2ced9774"
+              },
+              "savedDuration": 45.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 5.915341685262373,
+                "motionRmse": 1.8782483175756561,
+                "savedMotionRmse": 1.8782483175756561,
+                "earlyNrmse": 0.7100168004484396,
+                "fullNrmse": 0.27259181462711596,
+                "rmseByState": [
+                  1.1188065354348673,
+                  1.8782483175756541,
+                  0.014424251803105846,
+                  0.015374249952900272,
+                  0.01411327265168496,
+                  0.013408169956829032,
+                  0.012708267244471187,
+                  0.01293152425814109,
+                  0.015153302681904245,
+                  0.020085487731659718,
+                  0.021595807621540678,
+                  0.02300205824498539,
+                  0.021467946081126885,
+                  0.018774059271957824,
+                  0.016102449979332693,
+                  0.012870424124342163,
+                  0.012421023130755233,
+                  0.014483293549290496,
+                  0.015957548609012162,
+                  0.0171583268765805,
+                  0.017199422214883294,
+                  0.0175812067676013,
+                  0.01791938435162957,
+                  0.017597289952131098,
+                  0.016785728857590405,
+                  0.01511932567875187
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/waterwheel/transformer/run-2/truth.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "4b38fa7340ded851b4e0609bf53c8c0f9b2a2acaab1968b6bd7b13b1859b91a0"
+              },
+              "prediction": {
+                "file": "physical/waterwheel/transformer/run-2/prediction.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "7758b3f30ee0fe28931bbcb5b7450e6b7257d840ec46a30d4fd4cbb23049eb46"
+              },
+              "mismatch": {
+                "file": "physical/waterwheel/transformer/run-2/mismatch.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "a33d8cc2fa0d51282195e32f601177f0fad6cc3c5f92d4abfa7be94868568a94"
+              },
+              "normalizedError": {
+                "file": "physical/waterwheel/transformer/run-2/normalized-error.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "0145fad931e336e85413fc1efd33dfd4d645b779abc17b29d594a2a969bce051"
+              },
+              "savedDuration": 45.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.007876696561328783,
+                "motionRmse": 2.0856754881838047,
+                "savedMotionRmse": 2.0856754881838047,
+                "earlyNrmse": 0.0027829588764928313,
+                "fullNrmse": 0.30643723452977734,
+                "rmseByState": [
+                  1.4441965668913537,
+                  2.085675488183804,
+                  0.019460368099125304,
+                  0.02594861849288509,
+                  0.023962187062777165,
+                  0.02412880431907004,
+                  0.02577120125050836,
+                  0.019543761140178882,
+                  0.015573341837173661,
+                  0.013349550443250492,
+                  0.014458802376170048,
+                  0.01994568459121893,
+                  0.022700360629130435,
+                  0.02313574066300887,
+                  0.025212605248892503,
+                  0.02157552085272258,
+                  0.019627728397016975,
+                  0.01885522785327749,
+                  0.017139991733998047,
+                  0.01521219408199692,
+                  0.013721334606546945,
+                  0.012195388915627678,
+                  0.01085248501257101,
+                  0.011035288147561691,
+                  0.012505260488642719,
+                  0.015270428266078368
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/waterwheel/transformer/run-3/truth.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "9820754d42aa6c26a5024d43be3526c0e83acc10fe0e04cdd80c035e4c5f5eff"
+              },
+              "prediction": {
+                "file": "physical/waterwheel/transformer/run-3/prediction.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "321692d77a27d8cc1bc0ea9e4b2eeba7878d13e59f2e239563c407a0e1a476e7"
+              },
+              "mismatch": {
+                "file": "physical/waterwheel/transformer/run-3/mismatch.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "59d532182f674fbb856327c0ce22635d13d6e7465217a04ceff3e3d24efa6d5e"
+              },
+              "normalizedError": {
+                "file": "physical/waterwheel/transformer/run-3/normalized-error.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "39e2c6cf2a6d01cfb5c76504456c2bf801fb8166c7f9802073849037fb578e46"
+              },
+              "savedDuration": 45.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.05930161771999219,
+                "motionRmse": 1.4102848461169044,
+                "savedMotionRmse": 1.4102848461169044,
+                "earlyNrmse": 0.00871869154032781,
+                "fullNrmse": 0.22034809053392485,
+                "rmseByState": [
+                  1.2353440657804542,
+                  1.4102848461169024,
+                  0.012261239652768171,
+                  0.01122921994627301,
+                  0.01403654146135455,
+                  0.015009665720504493,
+                  0.015342280691289957,
+                  0.016285914264442574,
+                  0.01818732881390437,
+                  0.01774592065484029,
+                  0.01651037186107267,
+                  0.015373068534611121,
+                  0.014104971338260877,
+                  0.013519591420984889,
+                  0.013748521828182718,
+                  0.015042914837871166,
+                  0.016644898781073017,
+                  0.015162253627113416,
+                  0.01493329603807193,
+                  0.01395736403507518,
+                  0.015275917337486154,
+                  0.014311565043531165,
+                  0.014601994618415323,
+                  0.014748801064868486,
+                  0.014744470760032817,
+                  0.013699106813690203
+                ]
+              }
+            }
+          ]
+        },
+        "gru": {
+          "label": "GRU",
+          "seed": 7,
+          "updates": 3200,
+          "selectedUpdate": 3200,
+          "window": 24,
+          "validationNrmse": 0.00789677347313738,
+          "method": "Two GRU layers of 64 units. Reads 24 states with sine/cosine angles; predicts full-state increments; four-step recursive loss; AdamW, batch 256; checkpoint selected on separate 180-step validation forecasts.",
+          "sourceHashes": {
+            "data.npz": "4723553c563fdfa0a70efdb85b43d7024a475d7543ef4952e83df4a288ce4a35",
+            "initials.json": "15d5d1d6e2db1f4dfd17fc50b5a051776fb177f7e738d199673d9e7ef3f0f388",
+            "contexts.npz": "dd9179adbdd8a6807e4ea619c8dd25804ae145778b6cf94bb7f27b3beabe8582"
+          },
+          "artifactHashes": {
+            "model.pt": "e53283e9c4054f75d743b32290a02136520794228d7683c04aaf94708de7e6e6",
+            "forecast.npz": "bdb68c995cef1151a2f018a75bb916a183f8bbac9c1027ee8374cde14519f886"
+          },
+          "forecastSha256": "bdb68c995cef1151a2f018a75bb916a183f8bbac9c1027ee8374cde14519f886",
+          "runs": [
+            {
+              "truth": {
+                "file": "physical/waterwheel/gru/run-1/truth.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "d34cb498742fba92017e387eba19d5feffa96fbe504612aae9c7805942fdbb47"
+              },
+              "prediction": {
+                "file": "physical/waterwheel/gru/run-1/prediction.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "86e3afe4a64c3c9ab14827e392b4c777b69ef64971ab94cf03a69d639a201e76"
+              },
+              "mismatch": {
+                "file": "physical/waterwheel/gru/run-1/mismatch.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "139748c820d83987a1191d0cb018346f5a5504e792355a75c6ca7b265dacae4b"
+              },
+              "normalizedError": {
+                "file": "physical/waterwheel/gru/run-1/normalized-error.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "94ebe7ed622d4b468a54f5fdb636c54b44e14b28ef69dd4972e9afd38d053f19"
+              },
+              "savedDuration": 45.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 5.954820239956721,
+                "motionRmse": 2.93559170753754,
+                "savedMotionRmse": 2.93559170753754,
+                "earlyNrmse": 0.7106008222870627,
+                "fullNrmse": 0.4058402411076616,
+                "rmseByState": [
+                  1.7448827777988614,
+                  2.935591707537538,
+                  0.026213526113348772,
+                  0.02383083558252873,
+                  0.019719310373665044,
+                  0.016163217540784647,
+                  0.015384992515048396,
+                  0.018090035852075415,
+                  0.020224056730020975,
+                  0.022323051914485373,
+                  0.023059231753239016,
+                  0.0235539172776791,
+                  0.02376836866660612,
+                  0.024082399836413016,
+                  0.022945187048671135,
+                  0.020347893206198942,
+                  0.018444107807011716,
+                  0.01761717809254424,
+                  0.02074015891246772,
+                  0.02533146208054929,
+                  0.02760244541339877,
+                  0.027544248465448805,
+                  0.02313961872419084,
+                  0.01896410608839589,
+                  0.020298732651768858,
+                  0.02304080304511055
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/waterwheel/gru/run-2/truth.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "4b38fa7340ded851b4e0609bf53c8c0f9b2a2acaab1968b6bd7b13b1859b91a0"
+              },
+              "prediction": {
+                "file": "physical/waterwheel/gru/run-2/prediction.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "dfd4d4cbf89dd86833cec5daa99784fd9fbcdc9026da759e5466863f991c7bdb"
+              },
+              "mismatch": {
+                "file": "physical/waterwheel/gru/run-2/mismatch.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "315ae709897d78ec65ff910479824246b0687620c3e613f1f44b88648e05d4c4"
+              },
+              "normalizedError": {
+                "file": "physical/waterwheel/gru/run-2/normalized-error.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "f94f76e99003edab793552b1aa992ab78557cf8bfb3325f4e127e088ed13a896"
+              },
+              "savedDuration": 45.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.01635880310401858,
+                "motionRmse": 2.0857273377371097,
+                "savedMotionRmse": 2.0857273377371097,
+                "earlyNrmse": 0.003633222635359645,
+                "fullNrmse": 0.29305166497840973,
+                "rmseByState": [
+                  1.2554262789362378,
+                  2.0857273377371106,
+                  0.015861625505085047,
+                  0.016713422221402114,
+                  0.016935152362834587,
+                  0.01736818012416743,
+                  0.017680247368286474,
+                  0.016809242249660412,
+                  0.015373270951174915,
+                  0.014266657878790766,
+                  0.013683551874912657,
+                  0.014581868790595025,
+                  0.017204634558713974,
+                  0.01824847068612544,
+                  0.019600720101594797,
+                  0.019317051082162823,
+                  0.018798222968854788,
+                  0.01800867732323964,
+                  0.01643514397249939,
+                  0.015031494551416292,
+                  0.014500990303641052,
+                  0.015975034711585664,
+                  0.01631231374751291,
+                  0.016633384338311772,
+                  0.016460676115041938,
+                  0.01503076602403447
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/waterwheel/gru/run-3/truth.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "9820754d42aa6c26a5024d43be3526c0e83acc10fe0e04cdd80c035e4c5f5eff"
+              },
+              "prediction": {
+                "file": "physical/waterwheel/gru/run-3/prediction.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "c7881aa7bad6ab04424b9bc2dd3a550f2c34ba7d3ecc63e44c75ddb4759f16b9"
+              },
+              "mismatch": {
+                "file": "physical/waterwheel/gru/run-3/mismatch.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "5f9f268af6e5ea0deaa475c6daa77ef2d8498b68c73a38994083fe619e7a45c6"
+              },
+              "normalizedError": {
+                "file": "physical/waterwheel/gru/run-3/normalized-error.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "222cfeda88a6dd5357c5c62c12df24a901bc54cb754c0b4151fce0b022ba46d2"
+              },
+              "savedDuration": 45.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.028480382680277035,
+                "motionRmse": 2.1191415024696556,
+                "savedMotionRmse": 2.1191415024696556,
+                "earlyNrmse": 0.005822486114981824,
+                "fullNrmse": 0.28827595410894014,
+                "rmseByState": [
+                  1.2844640484871843,
+                  2.119141502469655,
+                  0.020680950717882663,
+                  0.01894288953305615,
+                  0.01568769955445779,
+                  0.014031670249990249,
+                  0.012183342541755767,
+                  0.010612488565355573,
+                  0.008770256798287883,
+                  0.010187643446079125,
+                  0.01157840388674362,
+                  0.015978525981061177,
+                  0.015879510832569877,
+                  0.017493392023037256,
+                  0.017323418909701904,
+                  0.016245812517476133,
+                  0.014154247704212199,
+                  0.012698471208630298,
+                  0.01022139433573423,
+                  0.008218346381217463,
+                  0.011823032162561392,
+                  0.011785986670278718,
+                  0.014936596700007231,
+                  0.01822986709012975,
+                  0.019166357898468506,
+                  0.01855464303509512
+                ]
+              }
+            }
+          ]
+        },
+        "mlp": {
+          "seed": 7,
+          "updates": 3200,
+          "method": "Predict state increments from sin/cos angles, velocities and (for the wheel) every bucket mass; 2 hidden layers of 128 SiLU units; four-step recursive loss; checkpoint selected on separate 180-step validation forecasts.",
+          "sourceHashes": {
+            "data.npz": "4723553c563fdfa0a70efdb85b43d7024a475d7543ef4952e83df4a288ce4a35",
+            "forecast.npz": "a215d129b1d4be02b123eac83f08d66df0e4d252a8b1eb10513235104489da41",
+            "model.pt": "2bb213738efbed2d5bd335a4e6a196049cbc4585a832c09f4e4a54a8f438ed13",
+            "initials.json": "15d5d1d6e2db1f4dfd17fc50b5a051776fb177f7e738d199673d9e7ef3f0f388",
+            "training.json": "ccc6e53ec7285f3f8883631a0588e8e6b91c5de8858209524fe9021e11cd03c9"
+          },
+          "label": "Residual MLP",
+          "window": 1,
+          "forecastSha256": "a215d129b1d4be02b123eac83f08d66df0e4d252a8b1eb10513235104489da41",
+          "runs": [
+            {
+              "truth": {
+                "file": "physical/waterwheel/mlp/run-1/truth.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "d34cb498742fba92017e387eba19d5feffa96fbe504612aae9c7805942fdbb47"
+              },
+              "prediction": {
+                "file": "physical/waterwheel/mlp/run-1/prediction.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "09c11fe3e30927006095e56225c0666d419ff1c4866425782369e1aebfd29938"
+              },
+              "mismatch": {
+                "file": "physical/waterwheel/mlp/run-1/mismatch.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "6b45618c799427986c2a9ddadf1ea0e87c258ca61cda818bb0359ae9b351bad3"
+              },
+              "normalizedError": {
+                "file": "physical/waterwheel/mlp/run-1/normalized-error.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "f3769cfda9517e3ed9d353146657481cf6c7bbca85e2dcdddaa3e0aed4cd6d26"
+              },
+              "savedDuration": 45.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.5863906871988838,
+                "motionRmse": 2.0786781181732827,
+                "savedMotionRmse": 2.0786781181732827,
+                "earlyNrmse": 0.08513555706191527,
+                "fullNrmse": 0.31642372100207394,
+                "rmseByState": [
+                  1.478081014859018,
+                  2.0786781181732805,
+                  0.01965783053027567,
+                  0.018595021212604524,
+                  0.016833305889295425,
+                  0.01843106301519221,
+                  0.018000183298037663,
+                  0.023080449386613727,
+                  0.02224491550449486,
+                  0.019679123141662383,
+                  0.018884154222145632,
+                  0.02436765623046796,
+                  0.02766374613031059,
+                  0.03171917578750273,
+                  0.024940324194196492,
+                  0.02013206217202576,
+                  0.019855737911102286,
+                  0.019747433663803847,
+                  0.018195508327355368,
+                  0.020580687891578308,
+                  0.021978921320539118,
+                  0.020283403152007495,
+                  0.020408301007344323,
+                  0.01724849469785493,
+                  0.015569257333891707,
+                  0.016234562216191302
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/waterwheel/mlp/run-2/truth.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "4b38fa7340ded851b4e0609bf53c8c0f9b2a2acaab1968b6bd7b13b1859b91a0"
+              },
+              "prediction": {
+                "file": "physical/waterwheel/mlp/run-2/prediction.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "6bd1b3bf8ff5fc6e54b4df5c11278146620b047f350853f7092fdfa1f9808e08"
+              },
+              "mismatch": {
+                "file": "physical/waterwheel/mlp/run-2/mismatch.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "64e713bd29e3e323ce68177519ca643dd046f650b5ed88a6d9e41f241146e0ea"
+              },
+              "normalizedError": {
+                "file": "physical/waterwheel/mlp/run-2/normalized-error.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "e730c89df57f9b393ced28a9c0bfecc6b3149e9bb9248084d402176546e60d82"
+              },
+              "savedDuration": 45.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.015903929088192496,
+                "motionRmse": 2.0882105896359233,
+                "savedMotionRmse": 2.0882105896359233,
+                "earlyNrmse": 0.003665012858109646,
+                "fullNrmse": 0.29265953899096314,
+                "rmseByState": [
+                  1.3816764455854282,
+                  2.0882105896359238,
+                  0.016156841827910093,
+                  0.016991855055414208,
+                  0.016631672710097876,
+                  0.018068316010022463,
+                  0.018495660865133576,
+                  0.01861067117413268,
+                  0.01620592514089102,
+                  0.012824939671877743,
+                  0.012794987806712796,
+                  0.01502507438377534,
+                  0.018261908109506217,
+                  0.02180276096555769,
+                  0.018022370281001253,
+                  0.018946303010148064,
+                  0.018403454978063824,
+                  0.018010001324488784,
+                  0.016252801184567345,
+                  0.014674151191738462,
+                  0.012412503258514328,
+                  0.010543463400426218,
+                  0.011146011903844793,
+                  0.011642119830725585,
+                  0.01619066606047946,
+                  0.017388646621389513
+                ]
+              }
+            },
+            {
+              "truth": {
+                "file": "physical/waterwheel/mlp/run-3/truth.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "9820754d42aa6c26a5024d43be3526c0e83acc10fe0e04cdd80c035e4c5f5eff"
+              },
+              "prediction": {
+                "file": "physical/waterwheel/mlp/run-3/prediction.f32",
+                "shape": [
+                  2251,
+                  26
+                ],
+                "bytes": 234104,
+                "sha256": "9a0b29c097da24af78c8f28b3b54dbbaf07ccd32ca6e4a05ace0e3d74d909c06"
+              },
+              "mismatch": {
+                "file": "physical/waterwheel/mlp/run-3/mismatch.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "fae9b8025b4f2350ab7989c660b4dec419b71b741007d3bfe08ff047ff9ce021"
+              },
+              "normalizedError": {
+                "file": "physical/waterwheel/mlp/run-3/normalized-error.f32",
+                "shape": [
+                  2251
+                ],
+                "bytes": 9004,
+                "sha256": "4161052eb824a66fe99c353fe0c12c0eda85657361e51498f4ff98a0fdcc8411"
+              },
+              "savedDuration": 45.0,
+              "failure": null,
+              "scores": {
+                "earlyMotionRmse": 0.037963852423318706,
+                "motionRmse": 2.3581794629270605,
+                "savedMotionRmse": 2.3581794629270605,
+                "earlyNrmse": 0.005692333653593644,
+                "fullNrmse": 0.34258922199718,
+                "rmseByState": [
+                  1.7352322559785718,
+                  2.35817946292706,
+                  0.018223235407636502,
+                  0.020190235368302605,
+                  0.024446084375972996,
+                  0.025583770148782863,
+                  0.025702023824035927,
+                  0.023662049495327037,
+                  0.022242600268567673,
+                  0.020174413392235482,
+                  0.01719867933519063,
+                  0.014344789546773503,
+                  0.015492783028137152,
+                  0.017803715946329332,
+                  0.02246046023269155,
+                  0.023885667554498214,
+                  0.026465285334741098,
+                  0.02517420945366511,
+                  0.022060234942892012,
+                  0.020802887130108784,
+                  0.020536944313140647,
+                  0.0163785876886222,
+                  0.014746803990196691,
+                  0.013509199347187893,
+                  0.017549955518234395,
+                  0.018539656165219458
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "contextSamples": 24,
+      "comparisonArtifacts": "/app/more_studies/chaos-private/chaos-forecasting-ai/results/physical-forecasting/comparison-2026-11-12"
     }
   }
 }

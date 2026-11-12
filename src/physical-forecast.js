@@ -20,7 +20,9 @@ export function createPhysicalForecast({ loadArray, onError }) {
     if (!state.data) return;
     state.index = Number(e.target.value) / 1000 * (state.data.samples - 1);state.dirty = true;
   });
-  $('physical-forecast-run').addEventListener('change', () => load(state.slug, state.config).catch(onError));
+  for (const id of ['physical-forecast-run', 'physical-forecast-model']) {
+    $(id).addEventListener('change', () => load(state.slug, state.config).catch(onError));
+  }
   const observer = new ResizeObserver(() => { state.dirty = true; });
   ['physical-truth','physical-prediction','physical-motion-series','physical-motion-error'].forEach(id => observer.observe($(id)));
 
@@ -30,10 +32,13 @@ export function createPhysicalForecast({ loadArray, onError }) {
     state.slug = slug;state.config = config;state.data = null;reset();
     $('physical-forecast-play').disabled = true;
     if (!config) throw new Error(`Saved physical forecast missing for ${slug}`);
-    if (changed) $('physical-forecast-run').replaceChildren(...config.runs.map((_, i) => {
+    const family = $('physical-forecast-model').value;
+    const model = config.models[family];
+    if (!model) throw new Error(`Saved physical model missing: ${slug}/${family}`);
+    if (changed) $('physical-forecast-run').replaceChildren(...model.runs.map((_, i) => {
       const option = document.createElement('option');option.value = i;option.textContent = `Run ${i + 1}`;return option;
     }));
-    const run = config.runs[Number($('physical-forecast-run').value)];
+    const run = model.runs[Number($('physical-forecast-run').value)];
     const [truth, prediction, mismatch] = await Promise.all([loadArray(run.truth), loadArray(run.prediction), loadArray(run.mismatch)]);
     if (version !== state.sequence) return;
     const d = config.dimensions, samples = run.truth.shape[0];
@@ -46,22 +51,30 @@ export function createPhysicalForecast({ loadArray, onError }) {
     const pend = slug === 'pendulum';
     $('physical-forecast-title').textContent = pend ? 'Can a model keep up with the pendulum?' : 'Can a model predict the next turn?';
     $('physical-forecast-description').textContent = pend
-      ? 'Here, the simulation models two masses connected by rigid arms, moving under gravity. The equations come from the forces and constraints of that mechanical setup; chaotic motion can emerge from their interaction. Lorenz reduced convection to three variables. This time, we’re asking the model to predict the angles and angular velocities of a mechanism we can watch moving. Both animations start from the same state: one follows the physical model, while the neural network keeps going using its own predictions. Watch the lower bobs as their timing begins to slip.'
+      ? 'Here, the simulation models two masses connected by rigid arms, moving under gravity. The equations come from the forces and constraints of that mechanical setup; chaotic motion can emerge from their interaction. Lorenz reduced convection to three variables. This time, we’re asking the model to predict the angles and angular velocities of a mechanism we can watch moving. Both animations start from the same state: one follows the physical model, while the selected forecaster keeps going using its own predictions. Watch the lower bobs as their timing begins to slip.'
       : 'This time, the model sees the wheel’s angle, its rotation speed and the water in every bucket. It has to predict all of them together: getting the water distribution wrong changes the next turn. The lime-colored wheel runs entirely on the model’s predictions, with no corrections from the simulation.';
     $('physical-series-title').textContent = pend ? 'LOWER BOB / HORIZONTAL POSITION' : 'WHEEL / ANGULAR VELOCITY';
     $('physical-error-title').textContent = pend ? 'DISTANCE BETWEEN THE LOWER BOBS / ROD LENGTHS' : 'DIFFERENCE IN ROTATION SPEED / RADIANS PER SECOND';
     $('physical-motion-series').setAttribute('aria-label', pend ? 'Horizontal position of the lower bob: simulation and forecast' : 'Wheel angular velocity: simulation and forecast');
     $('physical-motion-error').setAttribute('aria-label', pend ? 'Distance between simulated and forecast lower bobs' : 'Absolute angular velocity error');
+    $('physical-prediction-label').textContent = `FORECAST / ${model.label.toUpperCase()}`;
+    const descriptions = {
+      'polynomial-dynamics': 'Polynomial dynamics learns quadratic expressions for state derivatives, using sine and cosine for angles, then integrates the learned equations forward.',
+      transformer: 'The Transformer uses attention over the previous 24 states to predict the next change in the full physical state.',
+      gru: 'The GRU uses a recurrent network with gated memory over the previous 24 states to predict the next change in the full physical state.',
+      mlp: 'The residual MLP uses the latest complete state to predict its next change, with two hidden layers of 128 units.'
+    };
+    $('physical-model-description').textContent = `${model.label}: ${descriptions[family]}`;
     const fmt = value => value === null ? 'Not completed' : value === 0 ? '0' : value.toPrecision(3);
     $('physical-forecast-failure').hidden = !run.failure;
-    $('physical-forecast-failure').textContent = run.failure ? `This model rollout becomes unstable at ${run.failure.time.toFixed(2)} seconds. Playback stops before that state; the full-forecast score is unavailable.` : '';
-    $('physical-score-label').textContent = pend ? 'Lower bob position error' : 'Wheel rotation-speed error';
-    $('physical-score-early').textContent = `${fmt(run.scores.earlyMotionRmse)} ${pend ? 'rod lengths' : 'rad/s'}`;
+    $('physical-forecast-failure').textContent = run.failure ? `${model.label} becomes invalid or unstable at ${run.failure.time.toFixed(2)} seconds. Playback stops before that state; the full-forecast score is unavailable.` : '';
+    $('physical-score-label').textContent = `${model.label} · ${pend ? 'Lower bob position error' : 'Wheel rotation-speed error'}`;
+    $('physical-score-early').textContent = run.scores.earlyMotionRmse === null ? 'Not completed' : `${fmt(run.scores.earlyMotionRmse)} ${pend ? 'rod lengths' : 'rad/s'}`;
     $('physical-score-full').textContent = run.failure ? 'Not completed' : `${fmt(run.scores.motionRmse)} ${pend ? 'rod lengths' : 'rad/s'}`;
     $('physical-score-duration').textContent = `Full ${config.duration}-second forecast`;
-    $('physical-method').textContent = `A separate residual MLP was fitted for this system using 32 simulated training runs. Four other runs selected the checkpoint using 180-step forecasts; these three displayed runs were excluded from fitting and checkpoint selection. Inputs include the full simulated state, with angles encoded as sine and cosine. The network has two hidden layers of 128 units, uses a four-step recursive training loss and one fitting seed (7). After the starting state, every step uses the previous prediction. This is a new, exploratory noiseless simulation experiment, not a forecast of a measured physical apparatus.`;
-    $('physical-score-note').textContent = `RMSE measures the typical ${pend ? 'distance between the lower bobs' : 'rotation-speed error'} over the first 1.8 seconds or all ${config.duration} seconds. The observed starting state is excluded. These motion scores differ from the full-state normalized errors in section 03.`;
-    $('physical-forecast-play').disabled = false;state.dirty = true;
+    $('physical-method').textContent = `${model.label}. ${model.method} Each family is fitted separately for this system on the same 32 training runs, with four separate validation runs and three test runs. Transformer and GRU receive 24 observed states ending at the shared forecast origin; MLP and polynomial dynamics use its final state. After that origin, all models use their own predictions without corrections. Neural fits use one seed (7), so these are exploratory comparisons without calibrated uncertainty. This is a noiseless simulation experiment, not a forecast of a measured physical apparatus.`;
+    $('physical-score-note').textContent = `RMSE measures the typical ${pend ? 'distance between the lower bobs' : 'rotation-speed error'} over the first 1.8 seconds or all ${config.duration} seconds. The observed starting state is excluded; incomplete horizons are marked “Not completed”. These motion scores differ from the full-state normalized errors in section 03.`;
+    $('physical-forecast-play').disabled = samples < 2;state.dirty = true;
   }
   function draw() {
     const data = state.data;if (!data) return;
@@ -78,7 +91,7 @@ export function createPhysicalForecast({ loadArray, onError }) {
     chart($('physical-motion-series'), [{ values: data.truthLine, color: C.white },{ values: data.predictionLine, color: C.lime }], options);
     chart($('physical-motion-error'), [{ values: data.mismatch, color: C.coral }], { ...options, yMin: 0 });
     $('physical-forecast-time').value = `${(index * config.dt).toFixed(2)} s`;
-    $('physical-forecast-scrub').value = String(Math.round(state.index / (data.samples - 1) * 1000));state.dirty = false;
+    $('physical-forecast-scrub').value = String(data.samples > 1 ? Math.round(state.index / (data.samples - 1) * 1000) : 0);state.dirty = false;
   }
   function tick(delta) {
     if (!state.data) return;
