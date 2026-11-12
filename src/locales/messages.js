@@ -45,11 +45,11 @@ export const messages = {
     "fr": "Une exploration des systèmes chaotiques"
   },
   "Prediction has": {
-    "es": "La predicción tiene",
+    "es": "La predicción",
     "fr": "La prévision a"
   },
   "hard limits.": {
-    "es": "límites.",
+    "es": "tiene límites.",
     "fr": "ses limites."
   },
   "A study using simulations and machine learning to explore why some systems are so hard to predict.": {
@@ -101,7 +101,7 @@ export const messages = {
     "fr": "Le chaos désigne, dans sa forme la plus simple, un système qui suit des règles fixes tout en restant difficile à prévoir. Rien n’y est aléatoire : partez exactement du même état et vous obtiendrez exactement la même trajectoire. Pourtant, deux états initiaux presque identiques peuvent diverger jusqu’à produire des trajectoires sans ressemblance. C’est la sensibilité aux conditions initiales."
   },
   "The real issue? No starting state is ever known exactly. Measurements have limited precision and calculations introduce small errors, which chaotic dynamics amplify until the forecast no longer matches reality. Short-term predictions of a chaotic system can still work well, but in the long run, they are doomed to stray.": {
-    "es": "¿El verdadero problema? Nunca conocemos un estado inicial con exactitud. Las medidas tienen una precisión limitada y los cálculos introducen pequeños errores, que la dinámica caótica amplifica hasta que la predicción deja de coincidir con la realidad. Las predicciones a corto plazo aún pueden funcionar bien, pero a largo plazo acabarán desviándose.",
+    "es": "¿El verdadero problema? Que nunca conocemos un estado inicial con exactitud. Las medidas, quieras o no, tienen una precisión limitada, y los cálculos introducen pequeños errores, que la dinámica caótica amplifica hasta que la predicción deja de coincidir con la realidad. Las predicciones a corto plazo aún pueden funcionar bien, pero a largo plazo están condenadas a desviarse.",
     "fr": "Le vrai problème ? On ne connaît jamais exactement l’état initial. Les mesures ont une précision limitée et les calculs introduisent de petites erreurs que la dynamique chaotique amplifie, jusqu’à ce que la prévision ne corresponde plus à la réalité. Les prévisions à court terme peuvent encore être bonnes, mais à long terme, elles finissent par diverger."
   },
   "02 / Lorenz and the butterfly effect": {
@@ -117,7 +117,7 @@ export const messages = {
     "fr": "commencent un peu différemment ?"
   },
   "Edward Lorenz was a mathematician trying to understand why weather is so hard to forecast. In his": {
-    "es": "Edward Lorenz era un matemático que intentaba entender por qué es tan difícil predecir el tiempo. En su",
+    "es": "Edward Lorenz fue un matemático que intentaba entender por qué es tan difícil predecir el tiempo. En su",
     "fr": "Edward Lorenz était un mathématicien qui cherchait à comprendre pourquoi la météo est si difficile à prévoir. Dans son"
   },
   "1963 study": {
@@ -133,15 +133,15 @@ export const messages = {
     "fr": "Équations de Lorenz"
   },
   "Three numbers (x, y, z) pin down the state of the system as a point in the “phase space”, and the equations move that point step by step along a trajectory. The rules are fixed, so the same starting point always gives the same path. But a tiny change in the starting point can leave you somewhere completely different after the same amount of time. Lorenz found this out by accident: he restarted a simulation from rounded numbers, and the new run soon looked nothing like the original.": {
-    "es": "Tres números (x, y, z) describen el estado del sistema como un punto en el «espacio de fases», y las ecuaciones desplazan ese punto paso a paso a lo largo de una trayectoria. Las reglas son fijas, así que el mismo punto inicial siempre da el mismo recorrido. Pero un cambio diminuto en el punto de partida puede llevarte a un lugar completamente distinto tras el mismo tiempo. Lorenz lo descubrió por accidente: reinició una simulación con números redondeados y la nueva trayectoria pronto dejó de parecerse a la original.",
+    "es": "Tres números (x, y, z) describen el estado del sistema como un punto en el «espacio de fases», y las ecuaciones desplazan ese punto paso a paso a lo largo de una trayectoria. Las reglas son fijas, así que el mismo punto inicial siempre da el mismo recorrido, pero un cambio diminuto en el punto de partida puede llevarte a un lugar completamente distinto tras el mismo tiempo. La leyenda cuenta que Lorenz lo descubrió por accidente: reinició una simulación con números redondeados y la nueva trayectoria pronto dejó de parecerse a la original.",
     "fr": "Trois nombres (x, y, z) décrivent l’état du système comme un point dans l’« espace des phases », et les équations déplacent ce point pas à pas le long d’une trajectoire. Les règles sont fixes : un même point de départ donne toujours le même parcours. Mais une infime différence initiale peut vous conduire ailleurs après la même durée. Lorenz l’a découvert par accident : il a relancé une simulation avec des valeurs arrondies, et la nouvelle trajectoire s’est vite éloignée de l’originale."
   },
   "Draw every point a trajectory visits and a shape emerges: the Lorenz attractor, the butterfly-shaped curve we introduced at the top of the page. The path never repeats itself, yet it never leaves this shape. It circles one wing of the butterfly a few times, then jumps to the other, and keeps switching in an order that never settles into a pattern. In Lorenz's air convection model, each wing is a direction of circulation of the air, clockwise or anticlockwise, so every jump is the flow reversing.": {
-    "es": "Dibuja cada punto que visita una trayectoria y aparecerá una forma: el atractor de Lorenz, la curva con forma de mariposa del inicio de la página. La trayectoria nunca se repite, pero tampoco abandona esa forma. Da unas vueltas alrededor de un ala, salta a la otra y sigue alternando sin establecer un patrón. En el modelo de convección de Lorenz, cada ala representa un sentido de circulación del aire, horario o antihorario, así que cada salto es una inversión del flujo.",
+    "es": "Dibuja cada punto que visita una trayectoria y aparecerá una extraña forma: el atractor de Lorenz, la curva con forma de mariposa del inicio de la página. La trayectoria nunca se repite, pero tampoco abandona esa forma. Da unas vueltas alrededor de un ala, salta a la otra y sigue alternando sin establecer un patrón. En el modelo de convección de Lorenz, cada ala representa un sentido de circulación del aire, horario o antihorario, con que cabe interpretar cada salto como una inversión del flujo.",
     "fr": "Tracez chaque point visité par une trajectoire et une forme apparaît : l’attracteur de Lorenz, la courbe en papillon présentée en haut de la page. La trajectoire ne se répète jamais, mais ne quitte jamais cette forme. Elle tourne autour d’une aile, passe à l’autre, puis continue à alterner sans motif stable. Dans le modèle de convection de Lorenz, chaque aile correspond à un sens de circulation de l’air, horaire ou antihoraire : chaque saut est donc une inversion du flux."
   },
   "Use the slider below to set a tiny initial difference between two starting states. At first, their trajectories look almost identical. They drift apart a little, then all of a sudden seem to follow completely different paths. This is chaos in action: a tiny difference at the start grows into a striking difference over time. Make sure to give it about 15 seconds of simulation time. They get along in the beginning, but it doesn’t last long. Keep watching.": {
-    "es": "Usa el deslizador para introducir una pequeña diferencia entre dos estados iniciales. Al principio, sus trayectorias parecen casi idénticas. Se separan un poco y, de pronto, parecen seguir caminos totalmente distintos. Esto es el caos en acción: una diferencia diminuta al inicio se convierte en una gran diferencia con el tiempo. Deja pasar unos 15 segundos de simulación. Al principio van juntas, pero no dura mucho. Sigue mirando.",
+    "es": "Usa el deslizador para introducir una pequeña diferencia entre dos estados iniciales. Al principio, sus trayectorias parecen casi idénticas. Se separan un poco y, de pronto, parecen seguir caminos totalmente distintos. Esto es el caos en acción: una diferencia diminuta al inicio se convierte en una gran diferencia con el tiempo. Deja pasar unos 15 segundos de simulación. Al principio van juntas, pero no dura mucho. Tú sigue mirando.",
     "fr": "Utilisez le curseur pour introduire une petite différence entre deux états initiaux. Au début, les trajectoires semblent presque identiques. Elles s’écartent un peu, puis paraissent soudain suivre des chemins complètement différents. C’est le chaos en action : une infime différence initiale devient une grande différence avec le temps. Laissez passer environ 15 secondes de simulation. Au début, elles restent proches, mais cela ne dure pas. Continuez à regarder."
   },
   "NUMERICAL EXPERIMENT": {
@@ -285,7 +285,7 @@ export const messages = {
     "fr": "difficile à prévoir ?"
   },
   "At every step, a recursive model feeds its prediction back into itself. A small error changes the next input. The next prediction compounds that error. Sensitive dynamics make the consequences grow.": {
-    "es": "En cada paso, un modelo recursivo reutiliza su predicción como entrada. Un pequeño error cambia la siguiente entrada. La siguiente predicción amplifica ese error. Una dinámica sensible hace crecer sus consecuencias.",
+    "es": "Un modelo recursivo reutiliza su predicción como entrada en cada paso. Un pequeño error cambia la siguiente entrada. La siguiente predicción amplifica ese error, y así sucesivamente. Una dinámica sensible hace crecer sus consecuencias.",
     "fr": "À chaque pas, un modèle récursif réutilise sa prévision comme entrée. Une petite erreur modifie l’entrée suivante. La prévision suivante amplifie cette erreur. Une dynamique sensible en accroît les conséquences."
   },
   "There are two problems to separate: uncertainty about the starting state, and error in the learned dynamics. Even an analytical model faces the first. A learned model adds the second.": {
@@ -304,16 +304,12 @@ export const messages = {
     "es": "sigue siendo útil una predicción?",
     "fr": "prévision reste-t-elle utile ?"
   },
-  "Spoiler: not much. A forecast can follow the system closely at first, but will then drift away as small errors get amplified by chaotic behavior. Here, four models learn from simulated trajectories and try to predict what happens next. Replay their predictions alongside the original simulation to see how long they stay close and what happens after they separate.": {
-    "es": "Spoiler: poco. Una predicción puede seguir bien al sistema al principio, pero acaba desviándose cuando el comportamiento caótico amplifica los pequeños errores. Aquí, cuatro modelos aprenden de trayectorias simuladas e intentan predecir lo que viene después. Reproduce sus predicciones junto a la simulación original para ver cuánto tiempo se mantienen cerca y qué ocurre cuando se separan.",
-    "fr": "Spoiler : pas longtemps. Une prévision peut bien suivre le système au début, puis s’en éloigner lorsque le comportement chaotique amplifie les petites erreurs. Ici, quatre modèles apprennent à partir de trajectoires simulées pour prévoir la suite. Comparez leurs prévisions à la simulation originale pour voir combien de temps elles restent proches et ce qui se passe ensuite."
-  },
   "The systems being simulated": {
     "es": "Los sistemas simulados",
     "fr": "Les systèmes simulés"
   },
   "These are controlled experiments built around known differential equations. Their numerical solutions provide the reference trajectories—the curves labeled “Truth” in the player. This lets us study forecasting when the rules generating the data are known. The physical toy models, including the pendulum and waterwheel, come in the next section.": {
-    "es": "Son experimentos controlados basados en ecuaciones diferenciales conocidas. Sus soluciones numéricas proporcionan las trayectorias de referencia, etiquetadas como «Referencia» en el reproductor. Así podemos estudiar la predicción conociendo las reglas que generan los datos. Los modelos físicos, como el péndulo y la rueda de agua, aparecen en la siguiente sección.",
+    "es": "Son experimentos controlados basados en ecuaciones diferenciales conocidas. Sus soluciones numéricas proporcionan las trayectorias de referencia, etiquetadas como «Referencia» en el reproductor. Así podemos estudiar la predicción conociendo las reglas que generan los datos. Los modelos físicos, como el péndulo y la noria de agua, aparecen en la siguiente sección.",
     "fr": "Ces expériences contrôlées reposent sur des équations différentielles connues. Leurs solutions numériques donnent les trajectoires de référence, appelées « Référence » dans le lecteur. Cela permet d’étudier la prévision en connaissant les règles qui génèrent les données. Les modèles physiques, dont le pendule et la roue à eau, viennent dans la section suivante."
   },
   "The three-variable convection model from section 02. Its trajectory moves between the two wings of the familiar butterfly-shaped attractor.": {
@@ -553,7 +549,7 @@ export const messages = {
     "fr": "avec des mécanismes physiques ?"
   },
   "Now the equations describe physical mechanisms: two linked pendulums pulled by gravity, and a wheel turned by flowing water. We’re still working with simulations, but the motion comes from forces, mass and energy. Explore each system first, then let a learned model try to predict it.": {
-    "es": "Ahora las ecuaciones describen mecanismos físicos: dos péndulos unidos bajo la gravedad y una rueda movida por el agua. Seguimos trabajando con simulaciones, pero el movimiento procede de fuerzas, masa y energía. Explora primero cada sistema y deja después que un modelo aprendido intente predecirlo.",
+    "es": "Ahora las ecuaciones describen mecanismos físicos: dos péndulos unidos bajo la gravedad y una noria movida por el agua. Seguimos trabajando con simulaciones, pero el movimiento procede de fuerzas, masa y energía. Explora primero cada sistema y deja después que un modelo aprendido intente predecirlo.",
     "fr": "Les équations décrivent maintenant des mécanismes physiques : deux pendules liés soumis à la gravité et une roue entraînée par l’eau. Ce sont toujours des simulations, mais le mouvement résulte de forces, de masses et d’énergie. Explorez d’abord chaque système, puis laissez un modèle appris tenter de le prévoir."
   },
   "Choose a physical system": {
@@ -565,7 +561,7 @@ export const messages = {
     "fr": "Double pendule"
   },
   "Waterwheel": {
-    "es": "Rueda de agua",
+    "es": "Noria de agua",
     "fr": "Roue à eau"
   },
   "THE PHYSICAL SYSTEM": {
@@ -877,7 +873,7 @@ export const messages = {
     "fr": "Ces simulations et comparaisons de prévisions sont encore en développement. Utilisez les commandes pour explorer les exemples et examiner les résultats plus en détail."
   },
   "Try a different beginning": {
-    "es": "Prueba otro inicio",
+    "es": "Prueba otro punto de partida",
     "fr": "Essayer un autre départ"
   },
   "A project about chaotic dynamics and forecasting.": {
@@ -891,5 +887,13 @@ export const messages = {
   "Enable JavaScript for the interactive simulations. The explanations and research findings remain readable above.": {
     "es": "Activa JavaScript para las simulaciones interactivas. Las explicaciones y los resultados siguen siendo legibles arriba.",
     "fr": "Activez JavaScript pour les simulations interactives. Les explications et les résultats restent lisibles ci-dessus."
+  },
+  "Spoiler": {
+    "es": "Spoiler",
+    "fr": "Spoiler"
+  },
+  ": not much. A forecast can follow the system closely at first, but will then drift away as small errors get amplified by chaotic behavior. Here, four models learn from simulated trajectories and try to predict what happens next. Replay their predictions alongside the original simulation to see how long they stay close and what happens after they separate.": {
+    "es": ": poco. Una predicción puede seguir bien al sistema al principio, pero acaba desviándose cuando el comportamiento caótico amplifica los pequeños errores. Aquí, cuatro modelos aprenden de trayectorias simuladas e intentan predecir lo que viene después. Reproduce sus predicciones junto a la simulación original para ver cuánto tiempo se mantienen cerca y qué ocurre cuando se separan.",
+    "fr": " : pas longtemps. Une prévision peut bien suivre le système au début, puis s’en éloigner lorsque le comportement chaotique amplifie les petites erreurs. Ici, quatre modèles apprennent à partir de trajectoires simulées pour prévoir la suite. Comparez leurs prévisions à la simulation originale pour voir combien de temps elles restent proches et ce qui se passe ensuite."
   }
 };

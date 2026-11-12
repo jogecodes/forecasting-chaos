@@ -140,11 +140,11 @@ export const dynamicMessages = {
     "fr": "L’eau arrive près du sommet / chaque godet fuit"
   },
   "Imagine a wheel with little buckets around its rim. Water pours in near the top and leaks out through the bottom of each bucket. The heavier side pulls the wheel around, carrying the buckets away from the stream and changing which ones fill next. The water moves the wheel, and the wheel changes where the water goes. This setup is known as the Lorenzian waterwheel.": {
-    "es": "Imagina una rueda con pequeños recipientes en su borde. El agua entra cerca de arriba y sale por el fondo de cada recipiente. El lado más pesado hace girar la rueda, alejando los recipientes del chorro y cambiando cuáles se llenan después. El agua mueve la rueda y la rueda cambia adónde va el agua. Este mecanismo se conoce como rueda de agua lorenziana.",
+    "es": "Imagina una noria con pequeños recipientes en su borde. El agua entra cerca de arriba y sale por el fondo de cada recipiente. El lado más pesado hace girar la noria, alejando los recipientes del chorro y cambiando cuáles se llenan después. El agua mueve la noria y la noria cambia adónde va el agua. Este mecanismo se conoce como noria de agua lorenziana.",
     "fr": "Imaginez une roue munie de petits godets sur son pourtour. L’eau arrive près du sommet et fuit par le fond de chaque godet. Le côté le plus lourd entraîne la roue, éloignant les godets du jet et changeant ceux qui se remplissent ensuite. L’eau fait tourner la roue, et la roue change la destination de l’eau. C’est la roue à eau lorenzienne."
   },
   "Here we’re simulating the mechanism itself: the buckets fill and leak, their weight creates torque, and the wheel responds. Watch the water distribution as it speeds up, slows down or reverses. Predicting the next turn means keeping track of every bucket and how its load affects the motion.": {
-    "es": "Aquí simulamos el propio mecanismo: los recipientes se llenan y pierden agua, su peso genera un par y la rueda responde. Observa la distribución del agua cuando acelera, frena o invierte el giro. Predecir el siguiente movimiento exige seguir cada recipiente y cómo su carga afecta al conjunto.",
+    "es": "Aquí simulamos el propio mecanismo: los recipientes se llenan y pierden agua, su peso genera un par y la noria responde. Observa la distribución del agua cuando acelera, frena o invierte el giro. Predecir el siguiente movimiento exige seguir cada recipiente y cómo su carga afecta al conjunto.",
     "fr": "Nous simulons ici le mécanisme lui-même : les godets se remplissent et fuient, leur poids crée un couple et la roue réagit. Observez la répartition de l’eau lorsqu’elle accélère, ralentit ou inverse son sens. Prévoir le mouvement suivant exige de suivre chaque godet et l’effet de sa charge."
   },
   "PROJECTION / θ₁, ω₁": {
@@ -180,11 +180,11 @@ export const dynamicMessages = {
     "fr": "Cette simulation représente deux masses reliées par des bras rigides, soumises à la gravité. Les équations résultent des forces et des contraintes du mécanisme ; leurs interactions peuvent produire un mouvement chaotique. Lorenz a réduit la convection à trois variables. Ici, le modèle doit prévoir les angles et vitesses angulaires d’un mécanisme visible. Les deux animations partent du même état : l’une suit le modèle physique, l’autre poursuit ses propres prévisions. Observez les masses inférieures lorsqu’elles se désynchronisent."
   },
   "This time, the model sees the wheel’s angle, its rotation speed and the water in every bucket. It has to predict all of them together: getting the water distribution wrong changes the next turn. The lime-colored wheel runs entirely on the model’s predictions, with no corrections from the simulation.": {
-    "es": "Esta vez, el modelo observa el ángulo de la rueda, su velocidad y el agua de cada recipiente. Debe predecirlo todo a la vez: equivocarse en la distribución del agua cambia el siguiente giro. La rueda verde funciona solo con las predicciones del modelo, sin correcciones de la simulación.",
+    "es": "Esta vez, el modelo observa el ángulo de la noria, su velocidad y el agua de cada recipiente. Debe predecirlo todo a la vez: equivocarse en la distribución del agua cambia el siguiente giro. La noria verde funciona solo con las predicciones del modelo, sin correcciones de la simulación.",
     "fr": "Cette fois, le modèle observe l’angle de la roue, sa vitesse et l’eau de chaque godet. Il doit tout prévoir ensemble : une erreur sur la répartition de l’eau change le mouvement suivant. La roue verte évolue uniquement selon les prévisions du modèle, sans correction par la simulation."
   },
   "WHEEL / ANGULAR VELOCITY": {
-    "es": "RUEDA / VELOCIDAD ANGULAR",
+    "es": "NORIA / VELOCIDAD ANGULAR",
     "fr": "ROUE / VITESSE ANGULAIRE"
   },
   "DISTANCE BETWEEN THE LOWER BOBS / ROD LENGTHS": {
@@ -200,7 +200,7 @@ export const dynamicMessages = {
     "fr": "Position horizontale de la masse inférieure : simulation et prévision"
   },
   "Wheel angular velocity: simulation and forecast": {
-    "es": "Velocidad angular de la rueda: simulación y predicción",
+    "es": "Velocidad angular de la noria: simulación y predicción",
     "fr": "Vitesse angulaire de la roue : simulation et prévision"
   },
   "Distance between simulated and forecast lower bobs": {
@@ -252,7 +252,7 @@ export const dynamicMessages = {
     "fr": "{model} · {metric}"
   },
   "Wheel rotation-speed error": {
-    "es": "Error de velocidad de giro de la rueda",
+    "es": "Error de velocidad de giro de la noria",
     "fr": "Erreur de vitesse de rotation de la roue"
   },
   "Not completed": {
@@ -280,7 +280,7 @@ export const dynamicMessages = {
     "fr": "Deux couches GRU de 64 unités. Lit 24 états avec sinus/cosinus des angles ; prévoit les incréments de l’état complet ; perte récursive sur quatre pas ; AdamW, lot de 256 ; checkpoint sélectionné sur des prévisions de validation distinctes de 180 pas."
   },
   "Predict state increments from sin/cos angles, velocities and (for the wheel) every bucket mass; 2 hidden layers of 128 SiLU units; four-step recursive loss; checkpoint selected on separate 180-step validation forecasts.": {
-    "es": "Predice incrementos del estado con seno/coseno de los ángulos, velocidades y, para la rueda, la masa de cada recipiente; 2 capas ocultas de 128 unidades SiLU; pérdida recursiva de cuatro pasos; checkpoint elegido con predicciones independientes de validación de 180 pasos.",
+    "es": "Predice incrementos del estado con seno/coseno de los ángulos, velocidades y, para la noria, la masa de cada recipiente; 2 capas ocultas de 128 unidades SiLU; pérdida recursiva de cuatro pasos; checkpoint elegido con predicciones independientes de validación de 180 pasos.",
     "fr": "Prévoit les incréments de l’état à partir des sinus/cosinus des angles, des vitesses et, pour la roue, de la masse de chaque godet ; 2 couches cachées de 128 unités SiLU ; perte récursive sur quatre pas ; checkpoint sélectionné sur des prévisions de validation distinctes de 180 pas."
   },
   "{model}. {method} Each family is fitted separately for this system on the same 32 training runs, with four separate validation runs and three test runs. Transformer and GRU receive 24 observed states ending at the shared forecast origin; MLP and polynomial dynamics use its final state. After that origin, all models use their own predictions without corrections. Neural fits use one seed (7), so these are exploratory comparisons without calibrated uncertainty. This is a noiseless simulation experiment, not a forecast of a measured physical apparatus.": {

@@ -52,3 +52,13 @@
 @media(max-width:720px){.topbar{height:108px;align-content:center;flex-wrap:wrap;justify-content:space-between;gap:9px 12px}.topbar nav{order:3;flex-basis:100%;margin:0;justify-content:space-between;gap:8px}.topbar nav a:last-child{display:block}.language-switch{margin-left:auto}.hero-content{padding-top:160px}.hero h1.hero-title-prediction{font-size:clamp(43px,12.4vw,72px);overflow-wrap:normal}}
 html:lang(es) #physical-forecast-play,html:lang(fr) #physical-forecast-play{width:190px;min-width:190px;flex-basis:190px}
 @media(max-width:720px){html:lang(es) .physical-forecast-charts .chart-heading,html:lang(fr) .physical-forecast-charts .chart-heading{overflow-wrap:anywhere}}
+
+/* Keep the hero's copy, caption and signature in separate layout rows. */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,240px);grid-template-rows:1fr auto;column-gap:5vw;row-gap:64px;height:auto;min-height:max(740px,min(960px,100svh));max-height:none;padding:190px 5vw 28px}
+.hero-content{grid-column:1;grid-row:1;width:100%;padding:0;min-width:0}
+.hero-caption{position:relative;grid-column:2;grid-row:1;align-self:end;right:auto;bottom:auto;z-index:2}
+.hero-bottom{position:relative;grid-column:1/-1;grid-row:2;left:auto;right:auto;bottom:auto;z-index:2}
+html:lang(es) .hero-title-prediction em{display:inline-block;white-space:nowrap}
+.spoiler-word{font-style:normal}html:lang(es) .spoiler-word{font-style:italic}
+.trajectory-legend p{text-wrap:balance;hyphens:none;word-break:normal;overflow-wrap:normal}
+@media(max-width:720px){.hero{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;row-gap:48px;padding-top:160px;min-height:760px}.hero-content{padding:0}.hero-caption{grid-column:1;grid-row:2;justify-self:end;max-width:200px;right:auto;bottom:auto}.hero-bottom{grid-row:3}}
