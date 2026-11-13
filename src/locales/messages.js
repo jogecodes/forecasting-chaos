@@ -895,5 +895,25 @@ export const messages = {
   ": not much. A forecast can follow the system closely at first, but will then drift away as small errors get amplified by chaotic behavior. Here, four models learn from simulated trajectories and try to predict what happens next. Replay their predictions alongside the original simulation to see how long they stay close and what happens after they separate.": {
     "es": ": poco. Una predicción puede seguir bien al sistema al principio, pero acaba desviándose cuando el comportamiento caótico amplifica los pequeños errores. Aquí, cuatro modelos aprenden de trayectorias simuladas e intentan predecir lo que viene después. Reproduce sus predicciones junto a la simulación original para ver cuánto tiempo se mantienen cerca y qué ocurre cuando se separan.",
     "fr": " : pas longtemps. Une prévision peut bien suivre le système au début, puis s’en éloigner lorsque le comportement chaotique amplifie les petites erreurs. Ici, quatre modèles apprennent à partir de trajectoires simulées pour prévoir la suite. Comparez leurs prévisions à la simulation originale pour voir combien de temps elles restent proches et ce qui se passe ensuite."
+  },
+  "Reproduce the experiments": {
+    "es": "Reproduce los experimentos",
+    "fr": "Reproduire les expériences"
+  },
+  "Code & reproducible experiments": {
+    "es": "Código y experimentos reproducibles",
+    "fr": "Code et expériences reproductibles"
+  },
+  "Explore the simulation code, trained models, datasets and methods behind these experiments.": {
+    "es": "Consulta el código de simulación, los modelos entrenados, los datos y los métodos de estos experimentos.",
+    "fr": "Retrouvez le code des simulations, les modèles entraînés, les données et les méthodes de ces expériences."
+  },
+  "Browse Chaos Library on GitHub": {
+    "es": "Ver Chaos Library en GitHub",
+    "fr": "Voir Chaos Library sur GitHub"
+  },
+  "Research resources": {
+    "es": "Recursos de investigación",
+    "fr": "Ressources de recherche"
   }
 };

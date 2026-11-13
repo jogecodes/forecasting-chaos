@@ -48,7 +48,7 @@ test('English is always the initial language and manual translations remain avai
 test('every static prose and accessibility label has both translations', async () => {
   const html = await readFile(new URL('../index.html',import.meta.url),'utf8');
   const prose = html.replace(/<math\b[\s\S]*?<\/math>/g,'').replace(/<script\b[\s\S]*?<\/script>/g,'');
-  const texts = prose.split(/<[^>]*>/g).map(text=>text.trim()).filter(text=>/[A-Za-zÀ-ÿ]/.test(text));
+  const texts = prose.split(/<[^>]*>/g).map(text=>text.replaceAll('&amp;', '&').trim()).filter(text=>/[A-Za-zÀ-ÿ]/.test(text));
   for (const match of html.matchAll(/(?:aria-label|aria-valuetext)="([^"]+)"/g)) texts.push(match[1]);
   const invariant = new Set(['chaos','chaos↗','JORGE CASAJÚS-SETIÉN','Lorenz','Rössler','Lorenz:','Rössler:','Transformer','GRU','MLP','A','B','ES','EN','FR','Español','English','Français']);
   for (const source of texts) {

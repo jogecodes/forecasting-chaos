@@ -62,3 +62,7 @@ html:lang(es) .hero-title-prediction em,html:lang(fr) .hero-title-prediction em{
 .spoiler-word{font-style:normal}html:lang(es) .spoiler-word{font-style:italic}
 .trajectory-legend p{text-wrap:balance;hyphens:none;word-break:normal;overflow-wrap:normal}
 @media(max-width:720px){.hero{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;row-gap:48px;padding-top:160px;min-height:760px}.hero-content{padding:0}.hero-caption{grid-column:1;grid-row:2;justify-self:end;max-width:200px;right:auto;bottom:auto}.hero-bottom{grid-row:3}}
+
+.research-library{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:30px;border:1px solid var(--line);background:var(--panel);margin:0 0 48px}.research-library>div{max-width:650px}.research-library .eyebrow{margin-bottom:12px}.research-library h3{margin-bottom:12px}.research-library p:last-child{margin-bottom:0}.research-library .primary-link{flex-shrink:0;gap:18px}footer nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;font:10px/1.6 var(--mono);color:var(--muted)}footer nav a:hover{color:var(--lime)}
+@media(max-width:1050px){.research-library{align-items:flex-start;flex-direction:column}.research-library .primary-link{flex-shrink:1;max-width:100%}}
+@media(max-width:720px){.research-library{padding:22px;gap:18px}.research-library h3{font-size:24px}.research-library .primary-link{font-size:12px;gap:12px}footer nav{font-size:9px;gap:12px;flex:1}}
