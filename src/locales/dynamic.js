@@ -57,7 +57,7 @@ export const dynamicMessages = {
   },
   "{run} · {samples} forecast samples · {fit} · No truth updates · {horizon} native time units saved": {
     "es": "{run} · {samples} muestras de predicción · {fit} · Sin correcciones de referencia · {horizon} unidades de tiempo propias guardadas",
-    "fr": "{run} · {samples} échantillons de prévision · {fit} · Sans correction par la référence · {horizon} unités de temps propres enregistrées"
+    "fr": "{run} · {samples} échantillons de prévision · {fit} · Sans correction par la référence · Horizon enregistré : {horizon} unités de temps du système"
   },
   "{coordinate} / TIME": {
     "es": "{coordinate} / TIEMPO",
@@ -73,7 +73,7 @@ export const dynamicMessages = {
   },
   "Prediction errors for {system}, {run}. Lower is better.": {
     "es": "Errores de predicción para {system}, {run}. Menor es mejor.",
-    "fr": "Erreurs de prévision pour {system}, {run}. Plus faible signifie meilleur."
+    "fr": "Erreurs de prévision pour {system}, {run}. Des erreurs plus faibles indiquent un meilleur suivi."
   },
   "Summary scores are not available in this export.": {
     "es": "Este archivo exportado no incluye resultados resumidos.",
@@ -173,15 +173,15 @@ export const dynamicMessages = {
   },
   "Can a model predict the next turn?": {
     "es": "¿Puede un modelo predecir el siguiente giro?",
-    "fr": "Un modèle peut-il prévoir le prochain tour ?"
+    "fr": "Un modèle peut-il prévoir le prochain mouvement ?"
   },
   "Here, the simulation models two masses connected by rigid arms, moving under gravity. The equations come from the forces and constraints of that mechanical setup; chaotic motion can emerge from their interaction. Lorenz reduced convection to three variables. This time, we’re asking the model to predict the angles and angular velocities of a mechanism we can watch moving. Both animations start from the same state: one follows the physical model, while the selected forecaster keeps going using its own predictions. Watch the lower bobs as their timing begins to slip.": {
     "es": "Esta simulación representa dos masas unidas por brazos rígidos que se mueven bajo la gravedad. Las ecuaciones proceden de las fuerzas y restricciones del mecanismo; su interacción puede producir movimiento caótico. Lorenz redujo la convección a tres variables. Ahora pedimos al modelo que prediga los ángulos y las velocidades angulares de un mecanismo visible. Ambas animaciones parten del mismo estado: una sigue el modelo físico y la otra continúa con sus propias predicciones. Observa las masas inferiores cuando empiezan a perder la sincronía.",
-    "fr": "Cette simulation représente deux masses reliées par des bras rigides, soumises à la gravité. Les équations résultent des forces et des contraintes du mécanisme ; leurs interactions peuvent produire un mouvement chaotique. Lorenz a réduit la convection à trois variables. Ici, le modèle doit prévoir les angles et vitesses angulaires d’un mécanisme visible. Les deux animations partent du même état : l’une suit le modèle physique, l’autre poursuit ses propres prévisions. Observez les masses inférieures lorsqu’elles se désynchronisent."
+    "fr": "Cette simulation représente deux masses reliées par des bras rigides, soumises à la gravité. Les équations résultent des forces et des contraintes du mécanisme ; leurs interactions peuvent produire un mouvement chaotique. Lorenz a réduit la convection à trois variables. Ici, le modèle doit prévoir les angles et vitesses angulaires d’un mécanisme visible. Les deux animations partent du même état : l’une suit le modèle physique, l’autre poursuit le mouvement à partir de ses propres prévisions. Observez les masses inférieures lorsqu’elles se désynchronisent."
   },
   "This time, the model sees the wheel’s angle, its rotation speed and the water in every bucket. It has to predict all of them together: getting the water distribution wrong changes the next turn. The lime-colored wheel runs entirely on the model’s predictions, with no corrections from the simulation.": {
     "es": "Esta vez, el modelo observa el ángulo de la noria, su velocidad y el agua de cada recipiente. Debe predecirlo todo a la vez: equivocarse en la distribución del agua cambia el siguiente giro. La noria verde funciona solo con las predicciones del modelo, sin correcciones de la simulación.",
-    "fr": "Cette fois, le modèle observe l’angle de la roue, sa vitesse et l’eau de chaque godet. Il doit tout prévoir ensemble : une erreur sur la répartition de l’eau change le mouvement suivant. La roue verte évolue uniquement selon les prévisions du modèle, sans correction par la simulation."
+    "fr": "Cette fois, le modèle observe l’angle de la roue, sa vitesse et l’eau de chaque godet. Il doit tout prévoir ensemble : une erreur sur la répartition de l’eau change le mouvement suivant. La roue verte évolue uniquement selon les prévisions du modèle, sans être corrigée par la simulation."
   },
   "WHEEL / ANGULAR VELOCITY": {
     "es": "NORIA / VELOCIDAD ANGULAR",
